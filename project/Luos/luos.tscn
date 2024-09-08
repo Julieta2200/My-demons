@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1yq0s6dv87p"]
+
+[ext_resource type="Texture2D" uid="uid://cl7jfkyi5nkyl" path="res://assets/Characters/Main Character/Idle1.png" id="1_0bqla"]
+[ext_resource type="Script" path="res://project/Luos/luos.gd" id="1_2p48b"]
+[ext_resource type="Texture2D" uid="uid://yyri6osvdw2g" path="res://assets/Characters/Main Character/Idle2.png" id="2_5ukjp"]
+[ext_resource type="Texture2D" uid="uid://bvuu6mcymg0ng" path="res://assets/Characters/Main Character/Walk1.png" id="3_k84yx"]
+[ext_resource type="Texture2D" uid="uid://oc4xjcae2fcl" path="res://assets/Characters/Main Character/Walk2.png" id="4_3o0rr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m34us"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0bqla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5ukjp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k84yx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3o0rr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jrk7f"]
+radius = 6.25
+height = 19.0
+
+[node name="luos" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_2p48b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -3.25)
+sprite_frames = SubResource("SpriteFrames_m34us")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jrk7f")
