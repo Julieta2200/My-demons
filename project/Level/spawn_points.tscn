@@ -3,56 +3,50 @@
 [ext_resource type="PackedScene" uid="uid://c3gmwbfwdmvhr" path="res://project/Level/spawn_point.tscn" id="1_d5tlu"]
 
 [node name="points" type="Node2D"]
-position = Vector2(-312, -292)
-scale = Vector2(1.6, 1.6)
 
 [node name="1" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(1024, 448)
+position = Vector2(1272, 448)
 
 [node name="2" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(960, 704)
+position = Vector2(1165, 837)
 rotation = 0.523599
 
 [node name="3" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(768, 896)
+position = Vector2(893, 1103)
 rotation = 1.0472
 
 [node name="4" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(512, 960)
+position = Vector2(510, 1203)
 rotation = 1.5708
 
 [node name="5" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(256, 896)
+position = Vector2(132, 1104)
 rotation = 2.0944
 
 [node name="6" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(64, 704)
+position = Vector2(-149, 827)
 rotation = 2.61799
 
 [node name="7" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(3.05176e-05, 448)
+position = Vector2(-250, 448)
 rotation = 3.14159
 
 [node name="8" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(64, 192)
+position = Vector2(-146, 73)
 rotation = 3.66519
 
 [node name="9" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(256, -3.05176e-05)
+position = Vector2(131, -208)
 rotation = 4.18879
 
 [node name="10" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(512, -64)
+position = Vector2(509, -311)
 rotation = 4.71239
 
 [node name="11" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(768, 0)
+position = Vector2(886, -212)
 rotation = 5.23599
 
 [node name="12" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(960, 192)
-rotation = 5.75959
-
-[node name="13" parent="." instance=ExtResource("1_d5tlu")]
-position = Vector2(960, 192)
+position = Vector2(1167, 68)
 rotation = 5.75959

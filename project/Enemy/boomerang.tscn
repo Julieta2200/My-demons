@@ -44,11 +44,12 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mwo2a"]
+radius = 13.0024
 
 [node name="boomerang" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_mf5qn")
-speed = 200.0
+speed = 250.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.2366

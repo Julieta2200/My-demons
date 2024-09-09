@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1klurvlstsod"]
 
 [ext_resource type="Script" path="res://project/Level/level.gd" id="1_mbsfk"]
-[ext_resource type="PackedScene" uid="uid://di8ggvgm0n5jc" path="res://project/Level/spawn_points.tscn" id="2_w5fom"]
-[ext_resource type="PackedScene" uid="uid://dpbtd1qyphki3" path="res://project/Soul/lilith.tscn" id="3_ajg63"]
+[ext_resource type="PackedScene" path="res://project/Level/spawn_points.tscn" id="2_w5fom"]
+[ext_resource type="PackedScene" path="res://project/Soul/lilith.tscn" id="3_ajg63"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_mbsfk")

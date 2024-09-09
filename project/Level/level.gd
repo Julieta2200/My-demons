@@ -7,6 +7,7 @@ var spawn_points: Array
 
 func _ready():
 	spawn_points = $points.get_children()
+	randomize()
 
 
 func spawn_cloud():
@@ -28,4 +29,3 @@ func spawn_boomerang():
 	random_point.get_boomerang().add_child(path_follow_2d)
 	path_follow_2d.rotates = false
 	path_follow_2d.add_child(enemy)
-	$enemies.add_child(enemy)

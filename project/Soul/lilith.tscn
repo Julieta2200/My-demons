@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpbtd1qyphki3"]
+[gd_scene load_steps=7 format=3 uid="uid://dpbtd1qyphki3"]
 
 [ext_resource type="Script" path="res://project/Soul/soul.gd" id="1_082e2"]
 [ext_resource type="Texture2D" uid="uid://dy76c40aqyefc" path="res://assets/Characters/Lilith/Lilith1.png" id="2_b171h"]
 [ext_resource type="Texture2D" uid="uid://d0bowor0sn4b2" path="res://assets/Characters/Lilith/Lilith2.png" id="3_o31p7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dn70r"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rvry5"]
 animations = [{
@@ -27,6 +30,7 @@ scale = Vector2(4, 4)
 script = ExtResource("1_082e2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_dn70r")
 position = Vector2(-0.25, -9.25)
 sprite_frames = SubResource("SpriteFrames_rvry5")
 autoplay = "default"
