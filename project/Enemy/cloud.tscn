@@ -1,50 +1,69 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl466hiin3n8o"]
+[gd_scene load_steps=8 format=3 uid="uid://dl466hiin3n8o"]
 
-[ext_resource type="Texture2D" uid="uid://e75ieix78006" path="res://assets/Enemy/enemy.png" id="1_85awg"]
 [ext_resource type="Script" path="res://project/Enemy/cloud.gd" id="1_noy3g"]
+[ext_resource type="Texture2D" uid="uid://buxlbgsvkmo0f" path="res://assets/Enemy/Cloud/Big/Enemy_big1.png" id="2_ci0fq"]
+[ext_resource type="Texture2D" uid="uid://ciawt2fc0f0pi" path="res://assets/Enemy/Cloud/Big/Enemy_big2.png" id="3_5mtuu"]
+[ext_resource type="Texture2D" uid="uid://td4saf4eurgc" path="res://assets/Enemy/Cloud/Big/Enemy_big3.png" id="4_5ix4t"]
+[ext_resource type="Texture2D" uid="uid://cqtrcxc82smhv" path="res://assets/Enemy/Cloud/Big/Enemy_big4.png" id="5_o1oo6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mytb6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_85awg")
+"texture": ExtResource("2_ci0fq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5mtuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5ix4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o1oo6")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7wsed"]
-radius = 163.049
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ypuq0"]
+radius = 16.0
+height = 52.0
 
 [node name="cloud" type="CharacterBody2D"]
+scale = Vector2(4, 4)
 script = ExtResource("1_noy3g")
-speed = 250.0
+speed = 70.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mytb6")
 animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.747413
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_7wsed")
+position = Vector2(-26, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ypuq0")
 
 [node name="split_points" type="Node2D" parent="."]
 
 [node name="1" type="Marker2D" parent="split_points"]
+position = Vector2(-36, -2)
 
 [node name="2" type="Marker2D" parent="split_points"]
-position = Vector2(-114, 230)
+position = Vector2(-42, 28)
 
 [node name="3" type="Marker2D" parent="split_points"]
-position = Vector2(-122, -230)
+position = Vector2(-42, -30)
 
 [node name="4" type="Marker2D" parent="split_points"]
-position = Vector2(2, -164)
+position = Vector2(-30, -18)
 
 [node name="5" type="Marker2D" parent="split_points"]
-position = Vector2(1, 162)
+position = Vector2(-30, 16)
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

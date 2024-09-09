@@ -14,5 +14,6 @@ func _on_enemy_create_timer_timeout():
 	var random_index = randi_range(0, spawn_points.size() - 1)
 	var random_point = spawn_points[random_index]
 	enemy.position = random_point.position
+	enemy.spawn_point = random_point
 	$enemies.add_child(enemy)
  

@@ -4,6 +4,8 @@ class_name Enemy extends CharacterBody2D
 var soul: StaticBody2D
 var targeted: bool 
 
+var spawn_point: Node
+
 func _ready():
 	soul = $"../..".soul
 	var angle = atan2(global_position.y - soul.global_position.y, global_position.x-soul.global_position.x)
