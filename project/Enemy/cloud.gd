@@ -17,5 +17,6 @@ func split():
 	for sp in spawn_points:
 		var sc = small_cloud.instantiate()
 		sc.global_position = sp.global_position
+		sc.soul = soul
 		get_parent().add_child(sc)
 	queue_free()

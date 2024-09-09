@@ -1,16 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1klurvlstsod"]
+[gd_scene load_steps=4 format=3 uid="uid://b1klurvlstsod"]
 
 [ext_resource type="Script" path="res://project/Level/level.gd" id="1_mbsfk"]
-[ext_resource type="PackedScene" uid="uid://b1msixg7cg02m" path="res://project/Soul/soul.tscn" id="2_3gt8w"]
 [ext_resource type="PackedScene" uid="uid://c3gmwbfwdmvhr" path="res://project/Level/spawn_point.tscn" id="3_63pvh"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vjsl2"]
-radius = 593.35
+[ext_resource type="PackedScene" uid="uid://dpbtd1qyphki3" path="res://project/Soul/lilith.tscn" id="3_ajg63"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_mbsfk")
-
-[node name="soul" parent="." instance=ExtResource("2_3gt8w")]
 
 [node name="enemy_create_timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -18,56 +13,60 @@ autostart = true
 
 [node name="points" type="Node2D" parent="."]
 
-[node name="0" parent="points" instance=ExtResource("3_63pvh")]
-
 [node name="1" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(1016, 752)
-rotation = 0.523599
+position = Vector2(1024, 448)
 
 [node name="2" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(800, 968)
-rotation = 1.0472
+position = Vector2(960, 704)
+rotation = 0.523599
 
 [node name="3" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(504, 1048)
-rotation = 1.5708
+position = Vector2(768, 896)
+rotation = 1.0472
 
 [node name="4" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(208, 968)
-rotation = 2.0944
+position = Vector2(512, 960)
+rotation = 1.5708
 
 [node name="5" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(-7.99994, 752)
-rotation = 2.61799
+position = Vector2(256, 896)
+rotation = 2.0944
 
 [node name="6" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(-88, 456)
-rotation = 3.14159
+position = Vector2(64, 704)
+rotation = 2.61799
 
 [node name="7" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(-8, 160)
-rotation = 3.66519
+position = Vector2(3.05176e-05, 448)
+rotation = 3.14159
 
 [node name="8" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(208, -56)
-rotation = 4.18879
+position = Vector2(64, 192)
+rotation = 3.66519
 
 [node name="9" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(504, -136)
-rotation = 4.71239
+position = Vector2(256, -3.05176e-05)
+rotation = 4.18879
 
 [node name="10" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(800, -56)
-rotation = 5.23599
+position = Vector2(512, -64)
+rotation = 4.71239
 
 [node name="11" parent="points" instance=ExtResource("3_63pvh")]
-position = Vector2(1016, 168)
+position = Vector2(768, 0)
+rotation = 5.23599
+
+[node name="12" parent="points" instance=ExtResource("3_63pvh")]
+position = Vector2(960, 192)
+rotation = 5.75959
+
+[node name="13" parent="points" instance=ExtResource("3_63pvh")]
+position = Vector2(960, 192)
 rotation = 5.75959
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(504, 456)
-shape = SubResource("CircleShape2D_vjsl2")
+[node name="soul" parent="." instance=ExtResource("3_ajg63")]
+position = Vector2(512, 448)
 
 [connection signal="timeout" from="enemy_create_timer" to="." method="_on_enemy_create_timer_timeout"]

@@ -1,29 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://co0upcjqr3gvy"]
+[gd_scene load_steps=3 format=3 uid="uid://co0upcjqr3gvy"]
 
 [ext_resource type="Script" path="res://project/paths/path.gd" id="1_effty"]
+
+[sub_resource type="Curve2D" id="Curve2D_xpmfb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 386.324, -46.4324, -386.324, 46.4324, -520, -240, -400, 0, 0, 0, -544, 0)
+}
+point_count = 3
 
 [node name="boomerang_path" type="Node2D"]
 script = ExtResource("1_effty")
 
-[node name="1" type="Marker2D" parent="."]
-
-[node name="2" type="Marker2D" parent="."]
-position = Vector2(-128, -168)
-
-[node name="3" type="Marker2D" parent="."]
-position = Vector2(-360, -248)
-
-[node name="4" type="Marker2D" parent="."]
-position = Vector2(-640, -208)
-
-[node name="5" type="Marker2D" parent="."]
-position = Vector2(-768, -112)
-
-[node name="6" type="Marker2D" parent="."]
-position = Vector2(-704, 0)
-
-[node name="7" type="Marker2D" parent="."]
-position = Vector2(-576, 0)
-
-[node name="8" type="Marker2D" parent="."]
-position = Vector2(-448, 0)
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_xpmfb")

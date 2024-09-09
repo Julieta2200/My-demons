@@ -39,7 +39,7 @@ speed = 70.0
 sprite_frames = SubResource("SpriteFrames_mytb6")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.747413
+frame_progress = 0.0303004
 
 [node name="Area2D" type="Area2D" parent="."]
 
