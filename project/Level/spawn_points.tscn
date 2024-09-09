@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://di8ggvgm0n5jc"]
+
+[ext_resource type="PackedScene" uid="uid://c3gmwbfwdmvhr" path="res://project/Level/spawn_point.tscn" id="1_d5tlu"]
+
+[node name="points" type="Node2D"]
+position = Vector2(-312, -292)
+scale = Vector2(1.6, 1.6)
+
+[node name="1" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(1024, 448)
+
+[node name="2" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(960, 704)
+rotation = 0.523599
+
+[node name="3" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(768, 896)
+rotation = 1.0472
+
+[node name="4" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(512, 960)
+rotation = 1.5708
+
+[node name="5" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(256, 896)
+rotation = 2.0944
+
+[node name="6" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(64, 704)
+rotation = 2.61799
+
+[node name="7" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(3.05176e-05, 448)
+rotation = 3.14159
+
+[node name="8" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(64, 192)
+rotation = 3.66519
+
+[node name="9" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(256, -3.05176e-05)
+rotation = 4.18879
+
+[node name="10" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(512, -64)
+rotation = 4.71239
+
+[node name="11" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(768, 0)
+rotation = 5.23599
+
+[node name="12" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(960, 192)
+rotation = 5.75959
+
+[node name="13" parent="." instance=ExtResource("1_d5tlu")]
+position = Vector2(960, 192)
+rotation = 5.75959

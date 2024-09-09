@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dllb6w1wkjdeu"]
+
+[ext_resource type="Script" path="res://project/Level/level_1.gd" id="1_fitwb"]
+[ext_resource type="PackedScene" uid="uid://di8ggvgm0n5jc" path="res://project/Level/spawn_points.tscn" id="2_ecfr7"]
+[ext_resource type="PackedScene" uid="uid://dpbtd1qyphki3" path="res://project/Soul/lilith.tscn" id="3_0a5wl"]
+
+[node name="level1" type="Node2D"]
+script = ExtResource("1_fitwb")
+
+[node name="points" parent="." instance=ExtResource("2_ecfr7")]
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="soul" parent="." instance=ExtResource("3_0a5wl")]
+position = Vector2(512, 448)
+
+[node name="wave_1_start" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="wave_1_start" to="." method="_on_wave_1_start_timeout"]
