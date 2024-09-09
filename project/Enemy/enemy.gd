@@ -1,14 +1,22 @@
 class_name Enemy extends CharacterBody2D
 
-var speed: float = 250
+@export var speed: float
+var soul: StaticBody2D
 var targeted: bool 
-@onready var soul = $"../../soul"
+
+func _ready():
+	soul = $"../..".soul
+	var angle = atan2(global_position.y - soul.global_position.y, global_position.x-soul.global_position.x)
+	rotate(angle)
 
 func _process(delta):
-	position = position.move_toward(soul.position, speed * delta)
+	move(delta)
 	if Input.is_action_just_pressed("left") and targeted:
-		queue_free()
+		damage()
 	
+
+func move(delta: float):
+	position = position.move_toward(soul.position, speed * delta)
 
 func _on_area_2d_mouse_entered():
 	targeted = true
@@ -16,3 +24,6 @@ func _on_area_2d_mouse_entered():
 
 func _on_area_2d_mouse_exited():
 	targeted = false
+
+func damage():
+	pass

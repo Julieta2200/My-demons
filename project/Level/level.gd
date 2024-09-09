@@ -1,7 +1,8 @@
 extends Node2D
 
-var enemy_scene = preload("res://project/Enemy/enemy.tscn")
+var enemy_scene = preload("res://project/Enemy/cloud.tscn")
 var spawn_points: Array
+@onready var soul: StaticBody2D = $soul
 
 func _ready():
 	$soul.position = get_viewport().size / 2
