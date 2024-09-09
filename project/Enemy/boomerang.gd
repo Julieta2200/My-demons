@@ -1,6 +1,5 @@
 extends Enemy
 
-const delta = 50
 
 func damage():
 	queue_free()
