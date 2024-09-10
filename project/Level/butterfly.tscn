@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://db3v5obicktak"]
+
+[ext_resource type="Texture2D" uid="uid://dc5fxk02opbck" path="res://assets/level1/Background/butterfly1.png" id="1_v2e5p"]
+[ext_resource type="Texture2D" uid="uid://bklx60gbxs6kd" path="res://assets/level1/Background/butterfly2.png" id="2_cjif6"]
+[ext_resource type="Texture2D" uid="uid://b7oxkrb52ukr2" path="res://assets/level1/Background/butterfly3.png" id="3_5qds2"]
+[ext_resource type="Texture2D" uid="uid://cub5yux48sann" path="res://assets/level1/Background/butterfly4.png" id="4_uopfu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gb01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v2e5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cjif6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5qds2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uopfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5qds2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cjif6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[node name="butterfly" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_6gb01")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0633825

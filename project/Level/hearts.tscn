@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp0cgtj05w25g"]
+
+[ext_resource type="Texture2D" uid="uid://bcgbh8xt2ru6y" path="res://assets/ui/Heart1.png" id="1_b2242"]
+[ext_resource type="Script" path="res://project/Level/hearts.gd" id="1_my8ta"]
+
+[node name="hearts" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_my8ta")
+
+[node name="1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 37.0
+offset_right = 82.0
+offset_bottom = 81.0
+texture = ExtResource("1_b2242")
+
+[node name="2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 37.0
+offset_right = 142.0
+offset_bottom = 81.0
+texture = ExtResource("1_b2242")
+
+[node name="3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 38.0
+offset_right = 202.0
+offset_bottom = 82.0
+texture = ExtResource("1_b2242")

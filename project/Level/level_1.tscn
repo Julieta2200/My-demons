@@ -1,19 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyyd8f6sb310p"]
+[gd_scene load_steps=10 format=3 uid="uid://cyyd8f6sb310p"]
 
 [ext_resource type="Script" path="res://project/Level/level_1.gd" id="1_fitwb"]
+[ext_resource type="Texture2D" uid="uid://bgmkioinxsn1l" path="res://assets/level1/Background/Background1.png" id="2_1lh1u"]
 [ext_resource type="PackedScene" uid="uid://di8ggvgm0n5jc" path="res://project/Level/spawn_points.tscn" id="2_ecfr7"]
 [ext_resource type="PackedScene" uid="uid://dpbtd1qyphki3" path="res://project/Soul/lilith.tscn" id="3_0a5wl"]
+[ext_resource type="PackedScene" uid="uid://db3v5obicktak" path="res://project/Level/butterfly.tscn" id="3_365yw"]
 [ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="4_guvrx"]
-[ext_resource type="Texture2D" uid="uid://q6s71ngskkic" path="res://assets/backgrounds/tmpbackground.webp" id="4_xqaih"]
 [ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="6_mc1jt"]
+[ext_resource type="PackedScene" uid="uid://dp0cgtj05w25g" path="res://project/Level/hearts.tscn" id="8_iol3b"]
+[ext_resource type="PackedScene" uid="uid://dyswtt6lkwike" path="res://project/Level/support.tscn" id="9_e3ok8"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_fitwb")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(580, 454)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("4_xqaih")
+position = Vector2(512, 448)
+scale = Vector2(4, 4)
+texture = ExtResource("2_1lh1u")
+
+[node name="butterfly" parent="background" instance=ExtResource("3_365yw")]
+position = Vector2(-56.5, 38)
+
+[node name="butterfly2" parent="background" instance=ExtResource("3_365yw")]
+position = Vector2(-33.25, -28.75)
+frame = 1
+frame_progress = 0.0
+
+[node name="butterfly3" parent="background" instance=ExtResource("3_365yw")]
+position = Vector2(22, -46)
+frame = 5
+frame_progress = 0.0
+
+[node name="butterfly4" parent="background" instance=ExtResource("3_365yw")]
+position = Vector2(70, -38.5)
+frame = 4
+frame_progress = 0.0
+
+[node name="butterfly5" parent="background" instance=ExtResource("3_365yw")]
+position = Vector2(45.5, 60)
+frame = 2
+frame_progress = 0.0
 
 [node name="points" parent="." instance=ExtResource("2_ecfr7")]
 
@@ -38,5 +64,9 @@ autostart = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Dialog" parent="CanvasLayer" instance=ExtResource("6_mc1jt")]
+
+[node name="hearts" parent="CanvasLayer" instance=ExtResource("8_iol3b")]
+
+[node name="support" parent="CanvasLayer" instance=ExtResource("9_e3ok8")]
 
 [connection signal="timeout" from="dialog_start" to="." method="_on_dialog_start_timeout"]
