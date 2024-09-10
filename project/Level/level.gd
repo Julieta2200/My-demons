@@ -3,12 +3,16 @@ class_name Level extends Node2D
 var cloud_scene = preload("res://project/Enemy/cloud.tscn")
 var boomerang_scene = preload("res://project/Enemy/boomerang.tscn")
 var flash_scene = preload("res://project/Enemy/flash.tscn")
+var wall_scene = preload("res://project/Enemy/wall.tscn")
 var luos_sprite_scene = preload("res://project/SpriteFrames/luos_sprite.tscn")
 var lilith_sprite_scene = preload("res://project/SpriteFrames/lilith_sprite.tscn")
-
 var damage_light_scene = preload("res://project/Luos/damage_light.tscn")
 
 var spawn_points: Array
+
+var wall_left: Marker2D
+var wall_right: Marker2D
+
 @onready var soul: StaticBody2D = $soul
 
 func _ready():
@@ -48,4 +52,15 @@ func spawn_flash():
 	enemy.spawn_point = random_point
 	enemy.soul = $soul
 	enemy.position = random_point.position
+	$enemies.add_child(enemy)
+
+func spawn_wall():
+	var enemy = wall_scene.instantiate()
+	var rand = randf()
+	if rand > 0.5:
+		enemy.global_position = wall_right.global_position
+		enemy.target = wall_left.global_position
+	else:
+		enemy.target = wall_right.global_position
+		enemy.global_position = wall_left.global_position
 	$enemies.add_child(enemy)
