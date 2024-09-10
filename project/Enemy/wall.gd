@@ -14,10 +14,10 @@ func move(delta: float):
 
 func damage():
 	if active1:
-		$Sprite1.queue_free()
+		$enemy_1.queue_free()
 		active1 = false
 	elif  active2:
-		$Sprite2.queue_free()
+		$enemy_2.queue_free()
 		active2 = false
 	hp -= 1
 	if hp == 0:
