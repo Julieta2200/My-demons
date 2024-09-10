@@ -1,19 +1,19 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1yq0s6dv87p"]
 
-[ext_resource type="Texture2D" uid="uid://cl7jfkyi5nkyl" path="res://assets/Characters/Main Character/Idle1.png" id="1_0bqla"]
 [ext_resource type="Script" path="res://project/Luos/luos.gd" id="1_2p48b"]
-[ext_resource type="Texture2D" uid="uid://yyri6osvdw2g" path="res://assets/Characters/Main Character/Idle2.png" id="2_5ukjp"]
-[ext_resource type="Texture2D" uid="uid://bvuu6mcymg0ng" path="res://assets/Characters/Main Character/Walk1.png" id="3_k84yx"]
-[ext_resource type="Texture2D" uid="uid://oc4xjcae2fcl" path="res://assets/Characters/Main Character/Walk2.png" id="4_3o0rr"]
+[ext_resource type="Texture2D" uid="uid://b0gowopbo4421" path="res://assets/Characters/Luos/Luos_idle1.png" id="2_ljysa"]
+[ext_resource type="Texture2D" uid="uid://dd5o15h3aijqp" path="res://assets/Characters/Luos/Luos_idle2.png" id="3_0yoel"]
+[ext_resource type="Texture2D" uid="uid://b4y556uo26tf4" path="res://assets/Characters/Luos/Luos_Walk1.png" id="4_3rge1"]
+[ext_resource type="Texture2D" uid="uid://c20818fhias6g" path="res://assets/Characters/Luos/Luos_Walk2.png" id="5_873f0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m34us"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0bqla")
+"texture": ExtResource("2_ljysa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_5ukjp")
+"texture": ExtResource("3_0yoel")
 }],
 "loop": true,
 "name": &"idle",
@@ -21,10 +21,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_k84yx")
+"texture": ExtResource("4_3rge1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_3o0rr")
+"texture": ExtResource("5_873f0")
 }],
 "loop": true,
 "name": &"walk",
@@ -42,7 +42,7 @@ script = ExtResource("1_2p48b")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.5, -3.25)
 sprite_frames = SubResource("SpriteFrames_m34us")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
