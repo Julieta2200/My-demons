@@ -3,6 +3,9 @@ class_name Level extends Node2D
 var cloud_scene = preload("res://project/Enemy/cloud.tscn")
 var boomerang_scene = preload("res://project/Enemy/boomerang.tscn")
 var flash_scene = preload("res://project/Enemy/flash.tscn")
+var luos_sprite_scene = preload("res://project/SpriteFrames/luos_sprite.tscn")
+var lilith_sprite_scene = preload("res://project/SpriteFrames/lilith_sprite.tscn")
+
 var spawn_points: Array
 @onready var soul: StaticBody2D = $soul
 
