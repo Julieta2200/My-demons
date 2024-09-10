@@ -4,6 +4,10 @@ var cloud_scene = preload("res://project/Enemy/cloud.tscn")
 var boomerang_scene = preload("res://project/Enemy/boomerang.tscn")
 var flash_scene = preload("res://project/Enemy/flash.tscn")
 var wall_scene = preload("res://project/Enemy/wall.tscn")
+var luos_sprite_scene = preload("res://project/SpriteFrames/luos_sprite.tscn")
+var lilith_sprite_scene = preload("res://project/SpriteFrames/lilith_sprite.tscn")
+var damage_light_scene = preload("res://project/Luos/damage_light.tscn")
+
 var spawn_points: Array
 
 var wall_left: Marker2D
@@ -15,6 +19,11 @@ func _ready():
 	spawn_points = $points.get_children()
 	randomize()
 
+func _process(delta):
+	if Input.is_action_just_pressed("left"):
+		var dl = damage_light_scene.instantiate()
+		dl.position = get_viewport().get_mouse_position()
+		add_child(dl)
 
 func spawn_cloud():
 	var enemy = cloud_scene.instantiate()

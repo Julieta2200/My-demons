@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://34pgtrh70y0d"]
+
+[ext_resource type="Texture2D" uid="uid://b0gowopbo4421" path="res://assets/Characters/Luos/Luos_idle1.png" id="1_uijuk"]
+[ext_resource type="Texture2D" uid="uid://dd5o15h3aijqp" path="res://assets/Characters/Luos/Luos_idle2.png" id="2_euvya"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uijuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_euvya")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="luos_sprite" type="AnimatedSprite2D"]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_nq1yv")
+animation = &"idle"
+autoplay = "idle"

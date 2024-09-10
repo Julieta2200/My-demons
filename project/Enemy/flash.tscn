@@ -1,21 +1,28 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpmtiwbb1vpcn"]
 
 [ext_resource type="Script" path="res://project/Enemy/flash.gd" id="1_i38wv"]
-[ext_resource type="Texture2D" uid="uid://bgxhx13jq3c2y" path="res://assets/Enemy/Bumerang/Bumerang1.png" id="2_utqfq"]
-[ext_resource type="Texture2D" uid="uid://b3gwjr41devpf" path="res://assets/Enemy/Bumerang/Bumerang2.png" id="3_5r7ff"]
-[ext_resource type="Texture2D" uid="uid://2ej8phto5hkl" path="res://assets/Enemy/Bumerang/Bumerang3.png" id="4_ei051"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ckga"]
+load_path = "res://.godot/imported/Bumerang1.png-954a05140bfed6a596a50fb8e59ea6a4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8le0v"]
+load_path = "res://.godot/imported/Bumerang2.png-fb923d97f760594d2e27ed5619e2f4c1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ytoco"]
+load_path = "res://.godot/imported/Bumerang3.png-73cb7296185c502d89a655c062355a18.ctex"
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mytb6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_utqfq")
+"texture": SubResource("CompressedTexture2D_4ckga")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_5r7ff")
+"texture": SubResource("CompressedTexture2D_8le0v")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ei051")
+"texture": SubResource("CompressedTexture2D_ytoco")
 }],
 "loop": true,
 "name": &"idle",
