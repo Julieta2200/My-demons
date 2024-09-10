@@ -1,6 +1,6 @@
 extends Enemy
 
-var hp = 0
+@export var hp: int = 0
 
 func damage():
 	hp += 1
