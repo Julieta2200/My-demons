@@ -34,4 +34,12 @@ position = Vector2(512, 448)
 one_shot = true
 autostart = true
 
+[node name="wall_points" type="Node2D" parent="."]
+
+[node name="left" type="Marker2D" parent="wall_points"]
+position = Vector2(0, 448)
+
+[node name="right" type="Marker2D" parent="wall_points"]
+position = Vector2(1344, 448)
+
 [connection signal="timeout" from="wave_1_start" to="." method="_on_wave_1_start_timeout"]

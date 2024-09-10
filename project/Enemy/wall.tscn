@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmjuckxuiimr0"]
+
+[ext_resource type="Script" path="res://project/Enemy/wall.gd" id="1_3cxyk"]
+[ext_resource type="Texture2D" uid="uid://e75ieix78006" path="res://assets/Enemy/enemy.png" id="2_47hex"]
+[ext_resource type="Texture2D" uid="uid://vu74lmq6cp87" path="res://assets/images-removebg-preview (5).png" id="3_8iio6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71fxt"]
+radius = 162.207
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bdeh4"]
+radius = 162.207
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dhjq"]
+size = Vector2(417.14, 20)
+
+[node name="wall" type="CharacterBody2D"]
+script = ExtResource("1_3cxyk")
+speed = 100.0
+
+[node name="Sprite1" type="Sprite2D" parent="."]
+position = Vector2(0, -384)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_47hex")
+
+[node name="Area1" type="Area2D" parent="Sprite1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite1/Area1"]
+shape = SubResource("CircleShape2D_71fxt")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(0, 384)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_47hex")
+
+[node name="Area2" type="Area2D" parent="Sprite2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2/Area2"]
+shape = SubResource("CircleShape2D_bdeh4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.85453e-07, 4.24267)
+rotation = 1.5708
+scale = Vector2(1.53426, 1)
+texture = ExtResource("3_8iio6")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(-2.76529, 1.27898e-13)
+shape = SubResource("RectangleShape2D_5dhjq")
+
+[connection signal="mouse_entered" from="Sprite1/Area1" to="." method="_on_area_1_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite1/Area1" to="." method="_on_area_1_mouse_exited"]
+[connection signal="mouse_entered" from="Sprite2/Area2" to="." method="_on_area_2_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2/Area2" to="." method="_on_area_2_mouse_exited"]
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

@@ -12,9 +12,12 @@ func _ready():
 
 func _process(delta):
 	move(delta)
+	click()
+	
+
+func click():
 	if Input.is_action_just_pressed("left") and targeted:
 		damage()
-	
 
 func move(delta: float):
 	position = position.move_toward(soul.position, speed * delta)
