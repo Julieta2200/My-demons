@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://ll1tcp5khjar"]
 
 [ext_resource type="Script" path="res://project/Enemy/boomerang.gd" id="1_mf5qn"]
-[ext_resource type="Texture2D" uid="uid://bgxhx13jq3c2y" path="res://assets/Enemy/Bumerang/Bumerang1.png" id="2_24ti8"]
-[ext_resource type="Texture2D" uid="uid://b3gwjr41devpf" path="res://assets/Enemy/Bumerang/Bumerang2.png" id="3_omibv"]
-[ext_resource type="Texture2D" uid="uid://ce7kbxdg7kfhk" path="res://assets/Enemy/Bumerang/Bumerang3.png" id="4_ktcnq"]
+[ext_resource type="Texture2D" uid="uid://cthq2ayxddap3" path="res://assets/Enemy/Bumerang/Bumerang1.png" id="2_24ti8"]
+[ext_resource type="Texture2D" uid="uid://doesjssh52set" path="res://assets/Enemy/Bumerang/Bumerang2.png" id="3_omibv"]
+[ext_resource type="Texture2D" uid="uid://2ej8phto5hkl" path="res://assets/Enemy/Bumerang/Bumerang3.png" id="4_ktcnq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mytb6"]
 animations = [{
@@ -24,6 +24,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_hsucj"]
 resource_name = "rotate"
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -32,10 +33,22 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 6.28319]
+"values": [0.0, 6.28319, 12.5664]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 0.6), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m32oo"]
@@ -52,11 +65,12 @@ script = ExtResource("1_mf5qn")
 speed = 250.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = 1.2366
+rotation = 8.59499
+scale = Vector2(0.747174, 0.747174)
 sprite_frames = SubResource("SpriteFrames_mytb6")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.050329
+frame_progress = 0.17856
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 autoplay = "rotate"

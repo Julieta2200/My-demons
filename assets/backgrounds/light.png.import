@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doesjssh52set"
-path="res://.godot/imported/Bumerang2.png-fb923d97f760594d2e27ed5619e2f4c1.ctex"
+uid="uid://babhrqjwfxcdy"
+path="res://.godot/imported/light.png-cee57d5289a7e0de669228b1d07351a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/Bumerang/Bumerang2.png"
-dest_files=["res://.godot/imported/Bumerang2.png-fb923d97f760594d2e27ed5619e2f4c1.ctex"]
+source_file="res://assets/backgrounds/light.png"
+dest_files=["res://.godot/imported/light.png-cee57d5289a7e0de669228b1d07351a4.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://project/Level/level_1.gd" id="1_fitwb"]
 [ext_resource type="PackedScene" uid="uid://di8ggvgm0n5jc" path="res://project/Level/spawn_points.tscn" id="2_ecfr7"]
 [ext_resource type="PackedScene" uid="uid://dpbtd1qyphki3" path="res://project/Soul/lilith.tscn" id="3_0a5wl"]
-[ext_resource type="Texture2D" uid="uid://dwryy3sjb0svp" path="res://assets/backgrounds/whitelight.png" id="4_lei7a"]
+[ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="4_guvrx"]
 [ext_resource type="Texture2D" uid="uid://q6s71ngskkic" path="res://assets/backgrounds/tmpbackground.webp" id="4_xqaih"]
 
 [node name="level1" type="Node2D"]
@@ -25,8 +25,7 @@ scale = Vector2(4, 4)
 color = Color(0.329412, 0.145098, 0.858824, 1)
 energy = 6.19
 blend_mode = 2
-texture = ExtResource("4_lei7a")
-texture_scale = 0.4
+texture = ExtResource("4_guvrx")
 
 [node name="soul" parent="." instance=ExtResource("3_0a5wl")]
 position = Vector2(512, 448)
