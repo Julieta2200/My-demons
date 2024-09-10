@@ -61,6 +61,17 @@ position = Vector2(512, 448)
 one_shot = true
 autostart = true
 
+
+[node name="wall_points" type="Node2D" parent="."]
+
+[node name="left" type="Marker2D" parent="wall_points"]
+position = Vector2(0, 448)
+
+[node name="right" type="Marker2D" parent="wall_points"]
+position = Vector2(1344, 448)
+
+[connection signal="timeout" from="wave_1_start" to="." method="_on_wave_1_start_timeout"]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Dialog" parent="CanvasLayer" instance=ExtResource("6_mc1jt")]
@@ -70,3 +81,4 @@ autostart = true
 [node name="support" parent="CanvasLayer" instance=ExtResource("9_e3ok8")]
 
 [connection signal="timeout" from="dialog_start" to="." method="_on_dialog_start_timeout"]
+
