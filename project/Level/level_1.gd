@@ -37,6 +37,8 @@ var wave_3_dialog: Array[Dictionary] = [
 	{"name": "Lilith", "text": "Thank you, Luos. You’ve always been a great friend I can trust.", "sprite": lilith_sprite_scene, "right": true},
 ]
 
+@onready var hearts = $CanvasLayer/hearts
+
 func _ready():
 	super._ready()
 	wave_timer = Timer.new()
@@ -73,6 +75,7 @@ func wave_1_interval():
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_1_interval)
 		wave_timer.stop()
+		await get_tree().create_timer(6).timeout
 		start_dialog(wave_1_dialog)
 		dialog_timer.connect("timeout", show_wave_1_dialog)
 
@@ -100,6 +103,7 @@ func wave_2_interval():
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_2_interval)
 		wave_timer.stop()
+		await get_tree().create_timer(6).timeout
 		start_dialog(wave_2_dialog)
 		dialog_timer.connect("timeout", show_wave_2_dialog)
 
@@ -127,6 +131,7 @@ func wave_3_interval():
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_3_interval)
 		wave_timer.stop()
+		await get_tree().create_timer(6).timeout
 		start_dialog(wave_3_dialog)
 		dialog_timer.connect("timeout", show_wave_3_dialog)
 
