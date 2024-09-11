@@ -7,11 +7,15 @@ var wall_scene = preload("res://project/Enemy/wall.tscn")
 var luos_sprite_scene = preload("res://project/SpriteFrames/luos_sprite.tscn")
 var lilith_sprite_scene = preload("res://project/SpriteFrames/lilith_sprite.tscn")
 var damage_light_scene = preload("res://project/Luos/damage_light.tscn")
+var clock_scene = preload("res://project/Enemy/clock.tscn")
 
 var spawn_points: Array
 
 var wall_left: Marker2D
 var wall_right: Marker2D
+
+var clock_left: Marker2D
+var clock_right: Marker2D
 
 @onready var soul: StaticBody2D = $soul
 
@@ -63,4 +67,15 @@ func spawn_wall():
 	else:
 		enemy.target = wall_right.global_position
 		enemy.global_position = wall_left.global_position
+	$enemies.add_child(enemy)
+	
+func spawn_clock():
+	var enemy = clock_scene.instantiate()
+	var rand = randf()
+	if rand > 0.5:
+		enemy.global_position = clock_right.global_position
+		enemy.target = clock_left.global_position
+	else:
+		enemy.target = clock_right.global_position
+		enemy.global_position = clock_left.global_position
 	$enemies.add_child(enemy)

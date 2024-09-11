@@ -11,6 +11,8 @@ func _ready():
 
 func move(delta: float):
 	position = position.move_toward(target, speed * delta)
+	if position == target:
+		queue_free()
 
 func damage():
 	if active1:
@@ -42,6 +44,8 @@ func _on_area_1_mouse_exited():
 func _on_area_2_mouse_exited():
 	active2 = false
 
-
 func _on_area_2d_area_entered(area):
-	queue_free()
+	pass
+
+func delete():
+	pass

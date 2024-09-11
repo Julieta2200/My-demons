@@ -42,9 +42,10 @@ var wave_3_dialog: Array[Dictionary] = [
 func _ready():
 	super._ready()
 	wave_timer = Timer.new()
-	wave_timer.wait_time = 1
+	wave_timer.wait_time = 6
 	add_child(wave_timer)
-	
+	clock_left = $clock/c_left
+	clock_right = $clock/c_right
 	dialog_timer = Timer.new()
 	dialog_timer.wait_time = 3
 	add_child(dialog_timer)

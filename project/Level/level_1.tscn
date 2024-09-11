@@ -68,6 +68,14 @@ position = Vector2(0, 448)
 
 [node name="right" type="Marker2D" parent="wall_points"]
 position = Vector2(1344, 448)
+=
+[node name="clock" type="Node2D" parent="."]
+
+[node name="c_left" type="Marker2D" parent="clock"]
+position = Vector2(-256, 0)
+
+[node name="c_right" type="Marker2D" parent="clock"]
+position = Vector2(1472, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

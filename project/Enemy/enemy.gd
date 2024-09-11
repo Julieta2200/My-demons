@@ -31,3 +31,6 @@ func _on_area_2d_mouse_exited():
 
 func damage():
 	pass
+
+func delete():
+	queue_free()
