@@ -40,9 +40,10 @@ var wave_3_dialog: Array[Dictionary] = [
 func _ready():
 	super._ready()
 	wave_timer = Timer.new()
-	wave_timer.wait_time = 1
+	wave_timer.wait_time = 6
 	add_child(wave_timer)
-	
+	clock_left = $clock/c_left
+	clock_right = $clock/c_right
 	dialog_timer = Timer.new()
 	dialog_timer.wait_time = 3
 	add_child(dialog_timer)
@@ -66,7 +67,9 @@ func show_initial_dialog():
 	initial_dialog[dialog_index]["right"])
 
 func wave_1_interval():
-	spawn_boomerang()
+#	spawn_boomerang()
+	spawn_clock()
+#	spawn_wall()
 	wave_spawn_index += 1
 	if wave_spawn_index == 10:
 		wave_spawn_index = 0
