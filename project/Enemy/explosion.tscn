@@ -58,7 +58,7 @@ animations = [{
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_0dfu4")
 autoplay = "default"
-frame_progress = 0.381349
+frame_progress = 0.99282
 script = ExtResource("12_wnbfn")
 
 [node name="Timer" type="Timer" parent="."]

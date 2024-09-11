@@ -18,6 +18,7 @@ animations = [{
 }]
 
 [node name="lilith_sprite" type="AnimatedSprite2D"]
+position = Vector2(0, -9)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_nq1yv")
 animation = &"idle"
