@@ -67,9 +67,7 @@ func show_initial_dialog():
 	initial_dialog[dialog_index]["right"])
 
 func wave_1_interval():
-#	spawn_boomerang()
-	spawn_clock()
-#	spawn_wall()
+	spawn_boomerang()
 	wave_spawn_index += 1
 	if wave_spawn_index == 10:
 		wave_spawn_index = 0
