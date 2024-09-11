@@ -42,7 +42,7 @@ var wave_3_dialog: Array[Dictionary] = [
 func _ready():
 	super._ready()
 	wave_timer = Timer.new()
-	wave_timer.wait_time = 6
+	wave_timer.wait_time = 1
 	add_child(wave_timer)
 	clock_left = $clock/c_left
 	clock_right = $clock/c_right
@@ -76,6 +76,7 @@ func wave_1_interval():
 		wave_timer.disconnect("timeout", wave_1_interval)
 		wave_timer.stop()
 		await get_tree().create_timer(6).timeout
+		$PointLight2D.texture_scale = 0.65
 		start_dialog(wave_1_dialog)
 		dialog_timer.connect("timeout", show_wave_1_dialog)
 
@@ -104,6 +105,7 @@ func wave_2_interval():
 		wave_timer.disconnect("timeout", wave_2_interval)
 		wave_timer.stop()
 		await get_tree().create_timer(6).timeout
+		$PointLight2D.texture_scale = 0.8
 		start_dialog(wave_2_dialog)
 		dialog_timer.connect("timeout", show_wave_2_dialog)
 
@@ -132,6 +134,7 @@ func wave_3_interval():
 		wave_timer.disconnect("timeout", wave_3_interval)
 		wave_timer.stop()
 		await get_tree().create_timer(6).timeout
+		$PointLight2D.texture_scale = 1
 		start_dialog(wave_3_dialog)
 		dialog_timer.connect("timeout", show_wave_3_dialog)
 
@@ -149,7 +152,7 @@ func show_wave_3_dialog():
 
 func start_dialog(dialogs):
 	$CanvasLayer/Dialog.talk(dialogs[dialog_index]["text"],
-	 dialogs[dialog_index]["name"], dialogs[dialog_index]["sprite"],
+	dialogs[dialog_index]["name"], dialogs[dialog_index]["sprite"],
 	dialogs[dialog_index]["right"])
 	dialog_timer.start()
 
