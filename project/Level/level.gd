@@ -125,6 +125,6 @@ func delete_enemies():
 func _on_first_skill_cooldown_timer_done():
 	first_skill_cooldown = false
 
-	
-	
+func start_over():
+	get_tree().reload_current_scene()
 

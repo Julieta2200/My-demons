@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cyyd8f6sb310p"]
+[gd_scene load_steps=18 format=3 uid="uid://cyyd8f6sb310p"]
 
 [ext_resource type="Script" path="res://project/Level/level_1.gd" id="1_fitwb"]
 [ext_resource type="Texture2D" uid="uid://bgmkioinxsn1l" path="res://assets/level1/Background/Background1.png" id="2_1lh1u"]
@@ -288,11 +288,42 @@ tracks/10/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_tfajr"]
+resource_name = "lost"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_over"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4g37i"]
 _data = {
 "Finish": SubResource("Animation_el77p"),
 "RESET": SubResource("Animation_3wlfk"),
-"Start": SubResource("Animation_dugvw")
+"Start": SubResource("Animation_dugvw"),
+"lost": SubResource("Animation_tfajr")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_c6fsr"]

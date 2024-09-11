@@ -14,5 +14,7 @@ func remove():
 			continue
 		heart["active"] = false
 		heart["texture"].texture = load(deactive_sprite)
+		if heart["texture"] == $"1":
+			$"../../AnimationPlayer".play("lost")
 		break
-		
+	
