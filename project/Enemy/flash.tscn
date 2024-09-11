@@ -114,14 +114,14 @@ _data = {
 [node name="flash" type="CharacterBody2D"]
 scale = Vector2(1e-05, 1e-05)
 script = ExtResource("1_i38wv")
-step = 100.0
+step = 70.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_mytb6")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.807323
+frame_progress = 0.748656
 
 [node name="Area2D" type="Area2D" parent="."]
 
