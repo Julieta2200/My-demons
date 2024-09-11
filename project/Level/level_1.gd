@@ -144,6 +144,7 @@ func show_wave_3_dialog():
 		dialog_index = 0
 		dialog_timer.disconnect("timeout", show_wave_3_dialog)
 		dialog_timer.stop()
+		$AnimationPlayer.play("Finish")
 		return
 	
 	$CanvasLayer/Dialog.talk(wave_3_dialog[dialog_index]["text"],
