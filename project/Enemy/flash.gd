@@ -8,7 +8,7 @@ func _ready():
 	distance = soul.global_position.distance_to(global_position)
 
 func damage():
-	queue_free()
+	delete()
 	
 func move(delta: float):
 	pass

@@ -18,5 +18,7 @@ func split():
 		var sc = small_cloud.instantiate()
 		sc.global_position = sp.global_position
 		sc.soul = soul
+		sc.level = level
+		level.spawn(sc)
 		get_parent().add_child(sc)
-	queue_free()
+	delete()

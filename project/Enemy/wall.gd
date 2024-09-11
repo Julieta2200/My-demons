@@ -23,7 +23,7 @@ func damage():
 		active2 = false
 	hp -= 1
 	if hp == 0:
-		queue_free()
+		delete()
 	
 
 func click():
@@ -47,5 +47,5 @@ func _on_area_2_mouse_exited():
 func _on_area_2d_area_entered(area):
 	pass
 
-func delete():
+func touched_soul():
 	pass
