@@ -4,6 +4,8 @@ class_name Enemy extends CharacterBody2D
 var soul: StaticBody2D
 var targeted: bool 
 
+var level: Level
+
 var spawn_point: Node
 
 func _ready():
@@ -13,6 +15,7 @@ func _ready():
 func _process(delta):
 	move(delta)
 	click()
+
 	
 
 func click():
@@ -32,5 +35,10 @@ func _on_area_2d_mouse_exited():
 func damage():
 	pass
 
-func delete():
+func delete(remove_from_level: bool = true):
+	if remove_from_level:
+		level.remove(self)
 	queue_free()
+
+func touched_soul():
+	delete()

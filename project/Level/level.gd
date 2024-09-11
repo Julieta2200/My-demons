@@ -17,17 +17,29 @@ var wall_right: Marker2D
 var clock_left: Marker2D
 var clock_right: Marker2D
 
+var enemies: Dictionary
+
+var first_skill_cooldown: bool
+var first_skill_cooldown_timer: Timer
+
 @onready var soul: StaticBody2D = $soul
 
 func _ready():
 	spawn_points = $points.get_children()
 	randomize()
+	first_skill_cooldown_timer = Timer.new()
+	first_skill_cooldown_timer.wait_time = 10
+	first_skill_cooldown_timer.one_shot = true
+	first_skill_cooldown_timer.connect("timeout", _on_first_skill_cooldown_timer_done)
+	add_child(first_skill_cooldown_timer)
 
 func _process(delta):
 	if Input.is_action_just_pressed("left"):
 		var dl = damage_light_scene.instantiate()
 		dl.position = get_viewport().get_mouse_position()
 		add_child(dl)
+	if Input.is_action_just_pressed("kill_all"):
+		delete_enemies()
 
 func spawn_cloud():
 	var enemy = cloud_scene.instantiate()
@@ -37,6 +49,7 @@ func spawn_cloud():
 	enemy.soul = $soul
 	enemy.position = random_point.position
 	$enemies.add_child(enemy)
+	spawn(enemy)
 	
 func spawn_boomerang():
 	var enemy = boomerang_scene.instantiate()
@@ -48,6 +61,7 @@ func spawn_boomerang():
 	random_point.get_boomerang().add_child(path_follow_2d)
 	path_follow_2d.rotates = false
 	path_follow_2d.add_child(enemy)
+	spawn(enemy)
 
 func spawn_flash():
 	var enemy = flash_scene.instantiate()
@@ -57,6 +71,7 @@ func spawn_flash():
 	enemy.soul = $soul
 	enemy.position = random_point.position
 	$enemies.add_child(enemy)
+	spawn(enemy)
 
 func spawn_wall():
 	var enemy = wall_scene.instantiate()
@@ -68,6 +83,7 @@ func spawn_wall():
 		enemy.target = wall_right.global_position
 		enemy.global_position = wall_left.global_position
 	$enemies.add_child(enemy)
+	spawn(enemy)
 	
 func spawn_clock():
 	var enemy = clock_scene.instantiate()
@@ -79,3 +95,27 @@ func spawn_clock():
 		enemy.target = clock_right.global_position
 		enemy.global_position = clock_left.global_position
 	$enemies.add_child(enemy)
+	spawn(enemy)
+
+func spawn(enemy: Enemy):
+	enemies[enemy] = true
+	enemy.level = self
+
+func remove(enemy: Enemy):
+	enemies.erase(enemy)
+
+func delete_enemies():
+	if first_skill_cooldown:
+		return
+	for enemy in enemies:
+		enemy.delete(false)
+	enemies = {}
+	first_skill_cooldown = true
+	first_skill_cooldown_timer.start()
+	
+func _on_first_skill_cooldown_timer_done():
+	first_skill_cooldown = false
+
+	
+	
+
