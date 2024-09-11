@@ -310,10 +310,10 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_1lh1u")
 
 [node name="butterfly" parent="background" instance=ExtResource("3_365yw")]
-position = Vector2(-56.5, 38)
+position = Vector2(-56.5, 37.5923)
 
 [node name="butterfly2" parent="background" instance=ExtResource("3_365yw")]
-position = Vector2(-33.25, -28.75)
+position = Vector2(-33.25, -28.6083)
 frame = 1
 frame_progress = 0.0
 
