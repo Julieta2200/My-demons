@@ -5,6 +5,8 @@ var dialog_index = 0
 var wave_timer: Timer
 var dialog_timer: Timer
 
+var next_dialog
+
 var initial_dialog: Array[Dictionary] = [
 	{"name": "Lilith", "text": "I don’t know why I’m thinking about you right now.", "sprite": lilith_sprite_scene, "right": true},
 	{"name": "Luos", "text": "I’m here for you, Lilith.", "sprite": luos_sprite_scene, "right": false},
@@ -49,10 +51,11 @@ func _ready():
 	dialog_timer = Timer.new()
 	dialog_timer.wait_time = 3
 	add_child(dialog_timer)
+	next_dialog = initial_dialog
 
 func _on_dialog_start_timeout():
 	dialog_timer.connect("timeout", show_initial_dialog)
-	start_dialog(initial_dialog)
+	start_dialog()
 	
 
 func show_initial_dialog():
@@ -75,9 +78,9 @@ func wave_1_interval():
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_1_interval)
 		wave_timer.stop()
-		await get_tree().create_timer(6).timeout
 		$PointLight2D.texture_scale = 0.65
-		start_dialog(wave_1_dialog)
+		wave_finished = true
+		next_dialog = wave_1_dialog
 		dialog_timer.connect("timeout", show_wave_1_dialog)
 
 func show_wave_1_dialog():
@@ -104,9 +107,9 @@ func wave_2_interval():
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_2_interval)
 		wave_timer.stop()
-		await get_tree().create_timer(6).timeout
 		$PointLight2D.texture_scale = 0.8
-		start_dialog(wave_2_dialog)
+		next_dialog = wave_2_dialog
+		wave_finished = true
 		dialog_timer.connect("timeout", show_wave_2_dialog)
 
 func show_wave_2_dialog():
@@ -133,9 +136,9 @@ func wave_3_interval():
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_3_interval)
 		wave_timer.stop()
-		await get_tree().create_timer(6).timeout
 		$PointLight2D.texture_scale = 1
-		start_dialog(wave_3_dialog)
+		next_dialog = wave_3_dialog
+		wave_finished = true
 		dialog_timer.connect("timeout", show_wave_3_dialog)
 
 func show_wave_3_dialog():
@@ -151,10 +154,11 @@ func show_wave_3_dialog():
 	wave_3_dialog[dialog_index]["name"], wave_3_dialog[dialog_index]["sprite"],
 	wave_3_dialog[dialog_index]["right"])
 
-func start_dialog(dialogs):
-	$CanvasLayer/Dialog.talk(dialogs[dialog_index]["text"],
-	dialogs[dialog_index]["name"], dialogs[dialog_index]["sprite"],
-	dialogs[dialog_index]["right"])
+func start_dialog():
+	wave_finished = false
+	$CanvasLayer/Dialog.talk(next_dialog[dialog_index]["text"],
+	next_dialog[dialog_index]["name"], next_dialog[dialog_index]["sprite"],
+	next_dialog[dialog_index]["right"])
 	dialog_timer.start()
 
 

@@ -22,6 +22,8 @@ var enemies: Dictionary
 var first_skill_cooldown: bool
 var first_skill_cooldown_timer: Timer
 
+var wave_finished: bool
+
 @onready var soul: StaticBody2D = $soul
 
 func _ready():
@@ -103,6 +105,11 @@ func spawn(enemy: Enemy):
 
 func remove(enemy: Enemy):
 	enemies.erase(enemy)
+	if enemies.size() == 0 and wave_finished:
+		start_dialog()
+
+func start_dialog():
+	pass
 
 func delete_enemies():
 	if first_skill_cooldown:
@@ -112,6 +119,8 @@ func delete_enemies():
 	enemies = {}
 	first_skill_cooldown = true
 	first_skill_cooldown_timer.start()
+	if enemies.size() == 0 and wave_finished:
+		start_dialog()
 	
 func _on_first_skill_cooldown_timer_done():
 	first_skill_cooldown = false

@@ -121,7 +121,7 @@ rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_mytb6")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.748656
+frame_progress = 0.933991
 
 [node name="Area2D" type="Area2D" parent="."]
 
