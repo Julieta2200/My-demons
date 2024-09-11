@@ -2,6 +2,7 @@ extends Enemy
 
 @export var step: float
 var distance: float
+var next_position: Vector2
 
 func _ready():
 	super._ready()
@@ -22,5 +23,13 @@ func _on_step_timer_timeout():
 		y = sqrt(distance*distance - x*x)
 	else:
 		y = -sqrt(distance*distance - x*x)
-	
-	global_position = Vector2(x+soul.global_position.x, y+soul.global_position.y)
+	$AnimationPlayer.play("disappear")
+	$step_timer.stop()
+	next_position = Vector2(x+soul.global_position.x, y+soul.global_position.y)
+
+func disappeared():
+	global_position = next_position
+	$AnimationPlayer.play("appear")
+
+func appeared():
+	$step_timer.start()

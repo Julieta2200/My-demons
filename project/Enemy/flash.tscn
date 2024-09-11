@@ -1,74 +1,127 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpmtiwbb1vpcn"]
+[gd_scene load_steps=12 format=3 uid="uid://dpmtiwbb1vpcn"]
 
 [ext_resource type="Script" path="res://project/Enemy/flash.gd" id="1_i38wv"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ckga"]
-load_path = "res://.godot/imported/Bumerang1.png-954a05140bfed6a596a50fb8e59ea6a4.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8le0v"]
-load_path = "res://.godot/imported/Bumerang2.png-fb923d97f760594d2e27ed5619e2f4c1.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ytoco"]
-load_path = "res://.godot/imported/Bumerang3.png-73cb7296185c502d89a655c062355a18.ctex"
+[ext_resource type="Texture2D" uid="uid://beqqmad7nrh33" path="res://assets/Enemy/Teleport/Teleport1.png" id="2_qduxd"]
+[ext_resource type="Texture2D" uid="uid://pfsv4qoxm7me" path="res://assets/Enemy/Teleport/Teleport2.png" id="3_r1hjv"]
+[ext_resource type="Texture2D" uid="uid://br15bmrjsnebt" path="res://assets/Enemy/Teleport/Teleport3.png" id="4_542xe"]
+[ext_resource type="Texture2D" uid="uid://cf5cbeu0vhssd" path="res://assets/Enemy/Teleport/Teleport4.png" id="5_ch8yl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mytb6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_4ckga")
+"texture": ExtResource("2_qduxd")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_8le0v")
+"texture": ExtResource("3_r1hjv")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ytoco")
+"texture": ExtResource("4_542xe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ch8yl")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_hsucj"]
-resource_name = "rotate"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m32oo"]
-_data = {
-"rotate": SubResource("Animation_hsucj")
-}
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_mwo2a"]
 radius = 13.0024
 
+[sub_resource type="Animation" id="Animation_n8vpo"]
+resource_name = "disappear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"disappeared"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2vew2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_gk6p7"]
+resource_name = "appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(4, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"appeared"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6s3lh"]
+_data = {
+"RESET": SubResource("Animation_2vew2"),
+"appear": SubResource("Animation_gk6p7"),
+"disappear": SubResource("Animation_n8vpo")
+}
+
 [node name="flash" type="CharacterBody2D"]
-scale = Vector2(4, 4)
+scale = Vector2(1e-05, 1e-05)
 script = ExtResource("1_i38wv")
 step = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = 1.2366
+rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_mytb6")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.050329
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
-autoplay = "rotate"
-libraries = {
-"": SubResource("AnimationLibrary_m32oo")
-}
+frame_progress = 0.807323
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -78,6 +131,11 @@ shape = SubResource("CircleShape2D_mwo2a")
 
 [node name="step_timer" type="Timer" parent="."]
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6s3lh")
+}
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
