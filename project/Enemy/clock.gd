@@ -11,8 +11,6 @@ func move(delta: float):
 	if position == target:
 		queue_free()
 	
-func delete():
-	pass
 
 func damage():
 	$laser.visible = false
@@ -20,3 +18,6 @@ func damage():
 
 func _on_timer_timeout():
 	$laser.visible = true
+
+func touched_soul():
+	pass

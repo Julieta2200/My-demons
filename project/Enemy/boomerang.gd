@@ -2,7 +2,7 @@ extends Enemy
 
 
 func damage():
-	queue_free()
+	delete()
 	
 func move(delta: float):
 	var parent = get_parent()
