@@ -65,8 +65,6 @@ script = ExtResource("1_mf5qn")
 speed = 250.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = 10.9651
-scale = Vector2(0.89806, 0.89806)
 sprite_frames = SubResource("SpriteFrames_mytb6")
 animation = &"idle"
 autoplay = "idle"
