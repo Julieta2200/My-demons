@@ -26,6 +26,7 @@ func talk(text: String, name: String, image: Resource, right: bool = false):
 	for os in old_sprites:
 		os.queue_free()
 	var sprite = image.instantiate()
+	sprite.flip_h = right
 	panel["container"].add_child(sprite)
 	panel["panel"].visible = true
 

@@ -23,4 +23,3 @@ scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_nq1yv")
 animation = &"idle"
 autoplay = "idle"
-flip_h = true

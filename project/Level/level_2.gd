@@ -8,35 +8,34 @@ var dialog_timer: Timer
 var next_dialog
 
 var initial_dialog: Array[Dictionary] = [
-	{"name": "Lilith", "text": "I don’t know why I’m thinking about you right now.", "sprite": lilith_sprite_scene, "right": true},
-	{"name": "Luos", "text": "I’m here for you, Lilith.", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "You’ve always been so kind and calm. Sometimes, that helped me get through the day.", "sprite": lilith_sprite_scene, "right": true},
-	{"name": "Lilith", "text": "My grades are getting worse, and I keep letting everyone down.", "sprite": lilith_sprite_scene, "right": true},
-	{"name": "Luos", "text": "That’s not true at all!", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "My parents tried their best to support me, but I keep failing.", "sprite": lilith_sprite_scene, "right": true},
+	{"name": "Gary", "text": "Luos, Lilith, what are you doing here?", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Luos", "text": "Wait, do you know where this place is?", "sprite": luos_sprite_scene, "right": false},
+	{"name": "Gary", "text": "Isn’t this just my imagination? Am I going crazy?", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Gary", "text": "Aaah, whatever. It’s not like anyone will notice.", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Lilith", "text": "What do you mean?", "sprite": lilith_sprite_scene, "right": false},
 ]
 
 var wave_1_dialog: Array[Dictionary] = [
-	{"name": "Luos", "text": "Everyone is proud of you, no matter what.", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "I don’t think that’s true…", "sprite": lilith_sprite_scene, "right": true},
-	{"name": "Luos", "text": "No one has any expectations of you.", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Luos", "text": "The only thing I want is for you to be happy. Nothing else matters.", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "But what about my parents…", "sprite": lilith_sprite_scene, "right": true},
+	{"name": "Luos", "text": "What’s happening, Gary?", "sprite": luos_sprite_scene, "right": false},
+	{"name": "Gary", "text": "Aaah, who cares?", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Lilith", "text": "We care, Gary. All your friends care…", "sprite": lilith_sprite_scene, "right": false},
+	{"name": "Gary", "text": "I don’t have any friends…", "sprite": gary_sprite_scene, "right": true},
 ]
 
 var wave_2_dialog: Array[Dictionary] = [
-	{"name": "Luos", "text": "Your parents love you no matter what.", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "They always seem angry.", "sprite": lilith_sprite_scene, "right": true},
-	{"name": "Luos", "text": "Try talking to them about how you feel. They need to understand.", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "I just can’t do that.", "sprite": lilith_sprite_scene, "right": true},
+	{"name": "Luos", "text": "Gary, you have a lot of friends.", "sprite": luos_sprite_scene, "right": false},
+	{"name": "Lilith", "text": "Everyone in the class likes you!", "sprite": lilith_sprite_scene, "right": false},
+	{"name": "Gary", "text": "Then why do I always feel left out?", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Gary", "text": "When I'm around my classmates, I feel like I don’t belong. Aaah…", "sprite": gary_sprite_scene, "right": true},
 ]
 
 var wave_3_dialog: Array[Dictionary] = [
-	{"name": "Lilith", "text": "I remember when they bought me my piano…", "sprite": lilith_sprite_scene, "right": true},
-	{"name": "Lilith", "text": "Dad used to play with me all the time…", "sprite": lilith_sprite_scene, "right": true},
-	{"name": "Lilith", "text": "I want to talk to them and get their help.", "sprite": lilith_sprite_scene, "right": true},
-	{"name": "Luos", "text": "They’ll be happy to help you, Lilith…", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "Thank you, Luos. You’ve always been a great friend I can trust.", "sprite": lilith_sprite_scene, "right": true},
+	{"name": "Gary", "text": "I remember when you came to my birthday…", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Gary", "text": "I was really surprised and unprepared…", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Gary", "text": "But you didn’t care, you were so cheerful…", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Lilith", "text": "It was a great day, Gary.", "sprite": lilith_sprite_scene, "right": false},
+	{"name": "Gary", "text": "I don’t know why I feel this way.", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Luos", "text": "It’s fine Gary, we’re here with you, take your time…", "sprite": luos_sprite_scene, "right": false},
 ]
 
 @onready var hearts = $CanvasLayer/hearts
@@ -72,8 +71,12 @@ func show_initial_dialog():
 	initial_dialog[dialog_index]["right"])
 
 func wave_1_interval():
-	spawn_boomerang()
+	var rand = randf()
 	wave_spawn_index += 1
+	if rand < 0.25:
+		spawn_boomerang()
+	else:
+		spawn_flash()
 	if wave_spawn_index == 10:
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_1_interval)
@@ -99,10 +102,13 @@ func show_wave_1_dialog():
 func wave_2_interval():
 	var rand = randf()
 	wave_spawn_index += 1
-	if rand < 0.18:
+	if rand < 0.35:
+		spawn_boomerang()
+	elif rand < 0.5:
 		spawn_cloud()
 	else:
-		spawn_boomerang()
+		spawn_flash()
+		
 	if wave_spawn_index == 15:
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_2_interval)
@@ -128,10 +134,12 @@ func show_wave_2_dialog():
 func wave_3_interval():
 	var rand = randf()
 	wave_spawn_index += 1
-	if rand < 0.25:
+	if rand < 0.35:
 		spawn_cloud()
-	else:
+	elif rand < 0.5:
 		spawn_boomerang()
+	else:
+		spawn_flash()
 	if wave_spawn_index == 20:
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_3_interval)
@@ -168,6 +176,5 @@ func start_wave(wave: Callable):
 	$CanvasLayer/Dialog.finish()
 
 
-func start_next_leve():
-	get_tree().change_scene_to_file("res://project/Level/level_2.tscn")
+
 
