@@ -1,23 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://8ri502rkpnwr"]
 
-[ext_resource type="Texture2D" uid="uid://dy76c40aqyefc" path="res://assets/Characters/Lilith/Lilith1.png" id="1_upp24"]
-[ext_resource type="Texture2D" uid="uid://d0bowor0sn4b2" path="res://assets/Characters/Lilith/Lilith2.png" id="2_32x34"]
+[ext_resource type="Texture2D" uid="uid://bhn4tdvlgw6yf" path="res://assets/Characters/Ina/Ina1.png" id="1_e5ac2"]
+[ext_resource type="Texture2D" uid="uid://w62qhrl67jcs" path="res://assets/Characters/Ina/Ina2.png" id="2_4yl7s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_upp24")
+"texture": ExtResource("1_e5ac2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_32x34")
+"texture": ExtResource("2_4yl7s")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 2.0
 }]
 
-[node name="lilith_sprite" type="AnimatedSprite2D"]
+[node name="ina_sprite" type="AnimatedSprite2D"]
 position = Vector2(0, -9)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_nq1yv")
