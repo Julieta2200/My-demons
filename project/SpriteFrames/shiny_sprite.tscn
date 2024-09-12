@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://boklywkou3ffu"]
+
+[ext_resource type="Texture2D" uid="uid://dix3odyeiygg8" path="res://assets/Characters/Shiny/Shiny1.png" id="1_u0ciy"]
+[ext_resource type="Texture2D" uid="uid://3dj2dyh2s15w" path="res://assets/Characters/Shiny/Shiny2.png" id="2_3lkay"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u0ciy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3lkay")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="shiny_sprite" type="AnimatedSprite2D"]
+position = Vector2(0, -9)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_nq1yv")
+animation = &"idle"
+autoplay = "idle"

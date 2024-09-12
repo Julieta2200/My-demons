@@ -56,7 +56,7 @@ radius = 20.3055
 [node name="tank" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_1eq4e")
-speed = 200.0
+speed = 140.0
 
 [node name="green" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
