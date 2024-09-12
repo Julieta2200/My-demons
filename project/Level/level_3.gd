@@ -73,7 +73,7 @@ func wave_1_interval():
 	if rand < 0.25:
 		spawn_boomerang()
 	else:
-		spawn_flash()
+		spawn_tank()
 	if wave_spawn_index == 10:
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_1_interval)
@@ -171,7 +171,5 @@ func start_wave(wave: Callable):
 	wave_timer.connect("timeout", wave)
 	wave_timer.start()
 	$CanvasLayer/Dialog.finish()
-
-
 
 

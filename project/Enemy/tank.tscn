@@ -1,18 +1,80 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddf21me1vsi1e"]
+[gd_scene load_steps=12 format=3 uid="uid://ddf21me1vsi1e"]
 
 [ext_resource type="Script" path="res://project/Enemy/tank.gd" id="1_1eq4e"]
-[ext_resource type="Texture2D" uid="uid://e75ieix78006" path="res://assets/Enemy/enemy.png" id="2_dw8g6"]
+[ext_resource type="Texture2D" uid="uid://dic6cbikdngmj" path="res://assets/Enemy/Tank/Tank_green1.png" id="2_tkke6"]
+[ext_resource type="Texture2D" uid="uid://d1vkcee6v0i0o" path="res://assets/Enemy/Tank/Tank_green2.png" id="3_yvhym"]
+[ext_resource type="Texture2D" uid="uid://5xw8ws2vui1g" path="res://assets/Enemy/Tank/Tank_pulple1.png" id="4_0qv31"]
+[ext_resource type="Texture2D" uid="uid://b333phv1k1501" path="res://assets/Enemy/Tank/Tank_pulple2.png" id="5_t50rl"]
+[ext_resource type="Texture2D" uid="uid://bpl0384dssd72" path="res://assets/Enemy/Tank/Tank_red1.png" id="6_n48qu"]
+[ext_resource type="Texture2D" uid="uid://bm8bb8n6evr8j" path="res://assets/Enemy/Tank/Tank_red2.png" id="7_xgung"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5dwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tkke6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yvhym")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pe7l5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0qv31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t50rl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7cer"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_n48qu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xgung")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_67klc"]
-radius = 160.854
+radius = 20.3055
 
 [node name="tank" type="CharacterBody2D"]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(4, 4)
 script = ExtResource("1_1eq4e")
 speed = 100.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dw8g6")
+[node name="green" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_u5dwt")
+autoplay = "default"
+frame_progress = 0.168487
+
+[node name="purple" type="AnimatedSprite2D" parent="."]
+visible = false
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_pe7l5")
+autoplay = "default"
+
+[node name="red" type="AnimatedSprite2D" parent="."]
+visible = false
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_v7cer")
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="."]
 

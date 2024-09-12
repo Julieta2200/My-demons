@@ -175,6 +175,7 @@ func start_wave(wave: Callable):
 	wave_timer.start()
 	$CanvasLayer/Dialog.finish()
 
-
+func start_next_leve():
+	get_tree().change_scene_to_file("res://project/Level/level_3.tscn")
 
 

@@ -4,11 +4,14 @@ var cloud_scene = preload("res://project/Enemy/cloud.tscn")
 var boomerang_scene = preload("res://project/Enemy/boomerang.tscn")
 var flash_scene = preload("res://project/Enemy/flash.tscn")
 var wall_scene = preload("res://project/Enemy/wall.tscn")
+var tank_scene = preload("res://project/Enemy/tank.tscn")
+
 var luos_sprite_scene = preload("res://project/SpriteFrames/luos_sprite.tscn")
 var lilith_sprite_scene = preload("res://project/SpriteFrames/lilith_sprite.tscn")
 var gary_sprite_scene = preload("res://project/SpriteFrames/gary_sprite.tscn")
 var ina_sprite_scene = preload("res://project/SpriteFrames/ina_sprite.tscn")
 var damage_light_scene = preload("res://project/Luos/damage_light.tscn")
+
 var clock_scene = preload("res://project/Enemy/clock.tscn")
 
 var spawn_points: Array
@@ -54,7 +57,17 @@ func spawn_cloud():
 	enemy.position = random_point.position
 	$enemies.add_child(enemy)
 	spawn(enemy)
-	
+
+func spawn_tank():
+	var enemy = tank_scene.instantiate()
+	var random_index = randi_range(0, spawn_points.size() - 1)
+	var random_point = spawn_points[random_index]
+	enemy.spawn_point = random_point
+	enemy.soul = $soul
+	enemy.position = random_point.position
+	$enemies.add_child(enemy)
+	spawn(enemy)
+
 func spawn_boomerang():
 	var enemy = boomerang_scene.instantiate()
 	var random_index = randi_range(0, spawn_points.size() - 1)
