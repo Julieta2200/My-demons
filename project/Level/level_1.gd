@@ -39,7 +39,6 @@ var wave_3_dialog: Array[Dictionary] = [
 	{"name": "Lilith", "text": "Thank you, Luos. You’ve always been a great friend I can trust.", "sprite": lilith_sprite_scene, "right": true},
 ]
 
-#@onready var hearts = $CanvasLayer/hearts
 
 func _ready():
 	super._ready()
