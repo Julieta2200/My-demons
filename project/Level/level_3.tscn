@@ -1,16 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://bxo6qoh0qn0wk"]
+[gd_scene load_steps=18 format=3 uid="uid://drur3dcgyl8c5"]
 
-[ext_resource type="Script" path="res://project/Level/level_2.gd" id="1_y07w0"]
-[ext_resource type="Texture2D" uid="uid://bgmkioinxsn1l" path="res://assets/level1/Background/Background1.png" id="2_wa8oj"]
-[ext_resource type="PackedScene" uid="uid://db3v5obicktak" path="res://project/Level/butterfly.tscn" id="3_mwyl4"]
-[ext_resource type="Texture2D" uid="uid://bhvhxgt0msyld" path="res://assets/level1/Background/Black_layer.png" id="4_bm3pi"]
-[ext_resource type="Texture2D" uid="uid://cej0m86tp12qp" path="res://assets/level1/Background/Background_black.png" id="5_6yihs"]
-[ext_resource type="PackedScene" uid="uid://di8ggvgm0n5jc" path="res://project/Level/spawn_points.tscn" id="6_nifaj"]
-[ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="7_8lmrh"]
-[ext_resource type="PackedScene" uid="uid://x23jr8gempkg" path="res://project/Soul/gary.tscn" id="8_l6nug"]
-[ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="9_c6pvr"]
-[ext_resource type="PackedScene" uid="uid://dp0cgtj05w25g" path="res://project/Level/hearts.tscn" id="10_ln6ud"]
-[ext_resource type="PackedScene" uid="uid://dyswtt6lkwike" path="res://project/Level/support.tscn" id="11_2mfqk"]
+[ext_resource type="Script" path="res://project/Level/level_3.gd" id="1_verc3"]
+[ext_resource type="Texture2D" uid="uid://bgmkioinxsn1l" path="res://assets/level1/Background/Background1.png" id="2_nsuya"]
+[ext_resource type="PackedScene" uid="uid://db3v5obicktak" path="res://project/Level/butterfly.tscn" id="3_cijdn"]
+[ext_resource type="Texture2D" uid="uid://bhvhxgt0msyld" path="res://assets/level1/Background/Black_layer.png" id="4_rrkme"]
+[ext_resource type="Texture2D" uid="uid://cej0m86tp12qp" path="res://assets/level1/Background/Background_black.png" id="5_sxvdb"]
+[ext_resource type="PackedScene" uid="uid://di8ggvgm0n5jc" path="res://project/Level/spawn_points.tscn" id="6_0s4wu"]
+[ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="7_oeoms"]
+[ext_resource type="PackedScene" uid="uid://ivfp8gun81yp" path="res://project/Soul/ina.tscn" id="8_bdcp4"]
+[ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="9_2bpd6"]
+[ext_resource type="PackedScene" uid="uid://dp0cgtj05w25g" path="res://project/Level/hearts.tscn" id="10_btgq6"]
+[ext_resource type="PackedScene" uid="uid://dyswtt6lkwike" path="res://project/Level/support.tscn" id="11_8qj5j"]
 
 [sub_resource type="Animation" id="Animation_el77p"]
 resource_name = "Finish"
@@ -187,7 +187,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 4.7, 5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 6.19]
+"values": [0.0, 0.0, 12.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -344,33 +344,33 @@ _data = {
 }
 point_count = 13
 
-[node name="level2" type="Node2D"]
-script = ExtResource("1_y07w0")
+[node name="level3" type="Node2D"]
+script = ExtResource("1_verc3")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(512, 448)
 scale = Vector2(4, 4)
-texture = ExtResource("2_wa8oj")
+texture = ExtResource("2_nsuya")
 
-[node name="butterfly" parent="background" instance=ExtResource("3_mwyl4")]
+[node name="butterfly" parent="background" instance=ExtResource("3_cijdn")]
 position = Vector2(-56.5, 37.5923)
 
-[node name="butterfly2" parent="background" instance=ExtResource("3_mwyl4")]
+[node name="butterfly2" parent="background" instance=ExtResource("3_cijdn")]
 position = Vector2(-33.25, -28.6083)
 frame = 1
 frame_progress = 0.0
 
-[node name="butterfly3" parent="background" instance=ExtResource("3_mwyl4")]
+[node name="butterfly3" parent="background" instance=ExtResource("3_cijdn")]
 position = Vector2(22, -46)
 frame = 5
 frame_progress = 0.0
 
-[node name="butterfly4" parent="background" instance=ExtResource("3_mwyl4")]
+[node name="butterfly4" parent="background" instance=ExtResource("3_cijdn")]
 position = Vector2(70, -38.5)
 frame = 4
 frame_progress = 0.0
 
-[node name="butterfly5" parent="background" instance=ExtResource("3_mwyl4")]
+[node name="butterfly5" parent="background" instance=ExtResource("3_cijdn")]
 position = Vector2(45.5, 60)
 frame = 2
 frame_progress = 0.0
@@ -378,30 +378,26 @@ frame_progress = 0.0
 [node name="black" type="Sprite2D" parent="background"]
 modulate = Color(1, 1, 1, 0.615686)
 z_index = 2
-texture = ExtResource("4_bm3pi")
+texture = ExtResource("4_rrkme")
 
 [node name="black2" type="Sprite2D" parent="background"]
-texture = ExtResource("5_6yihs")
+texture = ExtResource("5_sxvdb")
 
-[node name="points" parent="." instance=ExtResource("6_nifaj")]
+[node name="points" parent="." instance=ExtResource("6_0s4wu")]
 
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(512, 448)
 scale = Vector2(4, 4)
-color = Color(0.101961, 1, 0.156863, 1)
+color = Color(0.917647, 0.27451, 0, 1)
 energy = 0.0
 blend_mode = 2
-texture = ExtResource("7_8lmrh")
+texture = ExtResource("7_oeoms")
 texture_scale = 0.5
 
 [node name="dialog_start" type="Timer" parent="."]
 one_shot = true
-
-[node name="soul" parent="." instance=ExtResource("8_l6nug")]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(512, 448)
 
 [node name="wall_points" type="Node2D" parent="."]
 
@@ -410,6 +406,10 @@ position = Vector2(0, 448)
 
 [node name="right" type="Marker2D" parent="wall_points"]
 position = Vector2(1344, 448)
+
+[node name="soul" parent="." instance=ExtResource("8_bdcp4")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(512, 448)
 
 [node name="clock" type="Node2D" parent="."]
 
@@ -422,11 +422,11 @@ position = Vector2(1472, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="Dialog" parent="CanvasLayer" instance=ExtResource("9_c6pvr")]
+[node name="Dialog" parent="CanvasLayer" instance=ExtResource("9_2bpd6")]
 
-[node name="hearts" parent="CanvasLayer" instance=ExtResource("10_ln6ud")]
+[node name="hearts" parent="CanvasLayer" instance=ExtResource("10_btgq6")]
 
-[node name="support" parent="CanvasLayer" instance=ExtResource("11_2mfqk")]
+[node name="support" parent="CanvasLayer" instance=ExtResource("11_8qj5j")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Start"
@@ -446,10 +446,10 @@ progress = 3468.0
 [node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D"]
 visible = false
 position = Vector2(0.367218, 0.538025)
-color = Color(0.101961, 1, 0.156863, 1)
+color = Color(1, 0.305882, 0.00784314, 1)
 energy = 0.0
 blend_mode = 2
-texture = ExtResource("7_8lmrh")
+texture = ExtResource("7_oeoms")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="light_path"]
 position = Vector2(970, 445)
@@ -458,10 +458,10 @@ rotation = 2.10216
 [node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D2"]
 visible = false
 position = Vector2(0.367218, 0.538025)
-color = Color(0.101961, 1, 0.156863, 1)
+color = Color(1, 0.305882, 0.00784314, 1)
 energy = 16.0
 blend_mode = 2
-texture = ExtResource("7_8lmrh")
+texture = ExtResource("7_oeoms")
 texture_scale = 0.6
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="light_path"]
@@ -471,10 +471,10 @@ rotation = 2.10216
 [node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D3"]
 visible = false
 position = Vector2(0.367218, 0.538025)
-color = Color(0.101961, 1, 0.156863, 1)
+color = Color(1, 0.305882, 0.00784314, 1)
 energy = 16.0
 blend_mode = 2
-texture = ExtResource("7_8lmrh")
+texture = ExtResource("7_oeoms")
 texture_scale = 0.3
 
 [connection signal="timeout" from="dialog_start" to="." method="_on_dialog_start_timeout"]
