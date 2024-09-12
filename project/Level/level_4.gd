@@ -104,12 +104,12 @@ func show_wave_1_dialog():
 func wave_2_interval():
 	var rand = randf()
 	wave_spawn_index += 1
-	if rand < 0.35:
-		spawn_boomerang()
-	elif rand < 0.5:
+	if rand < 0.25:
 		spawn_cloud()
+	elif rand < 0.5:
+		spawn_flash()
 	else:
-		spawn_tank()
+		spawn_wall()
 		
 	if wave_spawn_index == 15:
 		wave_spawn_index = 0
@@ -141,7 +141,7 @@ func wave_3_interval():
 	elif rand < 0.5:
 		spawn_tank()
 	else:
-		spawn_flash()
+		spawn_wall()
 	if wave_spawn_index == 20:
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_3_interval)
