@@ -70,6 +70,8 @@ func wave_1_interval():
 	wave_spawn_index += 1
 	if rand < 0.25:
 		spawn_boomerang()
+	elif rand < 0.5:
+		spawn_cloud()
 	else:
 		spawn_tank()
 	if wave_spawn_index == 10:
@@ -102,7 +104,7 @@ func wave_2_interval():
 	elif rand < 0.5:
 		spawn_cloud()
 	else:
-		spawn_flash()
+		spawn_tank()
 		
 	if wave_spawn_index == 15:
 		wave_spawn_index = 0
@@ -132,7 +134,7 @@ func wave_3_interval():
 	if rand < 0.35:
 		spawn_cloud()
 	elif rand < 0.5:
-		spawn_boomerang()
+		spawn_tank()
 	else:
 		spawn_flash()
 	if wave_spawn_index == 20:

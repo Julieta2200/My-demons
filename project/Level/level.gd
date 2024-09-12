@@ -168,7 +168,7 @@ func delete_enemies():
 		start_dialog()
 	
 func _on_first_skill_cooldown_timer_done():
-	first_skill_cooldown = false
+	first_skill_cooldown = true
 
 func start_over():
 	get_tree().reload_current_scene()
@@ -184,7 +184,7 @@ func heal():
 	hearts.add_heart()
 
 func _on_third_skill_cooldown_timer_done():
-	third_skill_cooldown = false
+	third_skill_cooldown = true
 
 
 func enemy_slowdown():
