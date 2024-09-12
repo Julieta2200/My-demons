@@ -35,3 +35,21 @@ offset_top = 38.0
 offset_right = 202.0
 offset_bottom = 82.0
 texture = ExtResource("1_b2242")
+
+[node name="4" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 211.0
+offset_top = 38.0
+offset_right = 263.0
+offset_bottom = 82.0
+texture = ExtResource("1_b2242")
+
+[node name="5" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 37.0
+offset_right = 323.0
+offset_bottom = 81.0
+texture = ExtResource("1_b2242")

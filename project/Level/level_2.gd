@@ -38,8 +38,6 @@ var wave_3_dialog: Array[Dictionary] = [
 	{"name": "Luos", "text": "It’s fine Gary, we’re here with you, take your time…", "sprite": luos_sprite_scene, "right": false},
 ]
 
-@onready var hearts = $CanvasLayer/hearts
-
 func _ready():
 	super._ready()
 	wave_timer = Timer.new()
