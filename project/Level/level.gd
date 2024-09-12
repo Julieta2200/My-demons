@@ -24,18 +24,34 @@ var enemies: Dictionary
 var first_skill_cooldown: bool
 var first_skill_cooldown_timer: Timer
 
+var second_skill_cooldown: bool
+var second_skill_cooldown_timer: Timer
+#var second_skill_used: bool = false
+
 var wave_finished: bool
 
 @onready var soul: StaticBody2D = $soul
+@onready var hearts = $CanvasLayer/hearts
 
 func _ready():
 	spawn_points = $points.get_children()
 	randomize()
+	#first_skill
 	first_skill_cooldown_timer = Timer.new()
 	first_skill_cooldown_timer.wait_time = 10
 	first_skill_cooldown_timer.one_shot = true
 	first_skill_cooldown_timer.connect("timeout", _on_first_skill_cooldown_timer_done)
 	add_child(first_skill_cooldown_timer)
+	#first_skill
+	
+	#second_skill
+	second_skill_cooldown_timer = Timer.new()
+	second_skill_cooldown_timer.wait_time = 10
+	second_skill_cooldown_timer.one_shot = true
+	second_skill_cooldown_timer.connect("timeout", _on_second_skill_cooldown_timer_done)
+	add_child(second_skill_cooldown_timer)
+	second_skill_cooldown_timer.start()
+	#second_skill
 
 func _process(delta):
 	if Input.is_action_just_pressed("left"):
@@ -44,6 +60,8 @@ func _process(delta):
 		add_child(dl)
 	if Input.is_action_just_pressed("kill_all"):
 		delete_enemies()
+	if Input.is_action_just_pressed("heal") and second_skill_cooldown:
+		heal()
 
 func spawn_cloud():
 	var enemy = cloud_scene.instantiate()
@@ -129,4 +147,15 @@ func _on_first_skill_cooldown_timer_done():
 
 func start_over():
 	get_tree().reload_current_scene()
+	
+	
+func _on_second_skill_cooldown_timer_done():
+	second_skill_cooldown = true
+	print("after 10 sec")
+	
+
+func heal():
+	second_skill_cooldown = false
+	hearts.add_heart()
+
 
