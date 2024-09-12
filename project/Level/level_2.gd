@@ -51,7 +51,7 @@ func _ready():
 	dialog_timer.wait_time = 3
 	add_child(dialog_timer)
 	next_dialog = initial_dialog
-
+	
 func _on_dialog_start_timeout():
 	dialog_timer.connect("timeout", show_initial_dialog)
 	start_dialog()
