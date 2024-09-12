@@ -1,51 +1,98 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmjuckxuiimr0"]
+[gd_scene load_steps=12 format=3 uid="uid://cmjuckxuiimr0"]
 
 [ext_resource type="Script" path="res://project/Enemy/wall.gd" id="1_3cxyk"]
-[ext_resource type="Texture2D" uid="uid://e75ieix78006" path="res://assets/Enemy/enemy.png" id="2_47hex"]
-[ext_resource type="Texture2D" uid="uid://vu74lmq6cp87" path="res://assets/images-removebg-preview (5).png" id="3_8iio6"]
+[ext_resource type="Texture2D" uid="uid://dlleakwcnogu7" path="res://assets/Enemy/Spider/Spider1.png" id="2_ra2qk"]
+[ext_resource type="Texture2D" uid="uid://bppi4ce8dmt8u" path="res://assets/Enemy/Spider/Spider2.png" id="3_g8yb0"]
+[ext_resource type="Texture2D" uid="uid://calbkpsr1bgp2" path="res://assets/Enemy/Spider/Laser1.png" id="4_2x8fn"]
+[ext_resource type="Texture2D" uid="uid://yablaqpd4yb6" path="res://assets/Enemy/Spider/Laser2.png" id="5_cdhxw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g245x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ra2qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g8yb0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_71fxt"]
-radius = 162.207
+radius = 35.2472
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3sgp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ra2qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g8yb0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bdeh4"]
-radius = 162.207
+radius = 46.1053
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6f1f6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2x8fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cdhxw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dhjq"]
-size = Vector2(417.14, 20)
+size = Vector2(86.8497, 8.25)
 
 [node name="wall" type="CharacterBody2D"]
+scale = Vector2(4, 4)
 script = ExtResource("1_3cxyk")
 speed = 100.0
 
-[node name="enemy_1" type="Sprite2D" parent="."]
-position = Vector2(0, -384)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_47hex")
+[node name="enemy_1" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -87.5)
+sprite_frames = SubResource("SpriteFrames_g245x")
+autoplay = "default"
+frame_progress = 0.722792
 
 [node name="Area1" type="Area2D" parent="."]
-position = Vector2(0, -384)
+position = Vector2(0, -87.5)
 scale = Vector2(0.3, 0.3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area1"]
+position = Vector2(0, 19.1667)
 shape = SubResource("CircleShape2D_71fxt")
 
-[node name="enemy_2" type="Sprite2D" parent="."]
-position = Vector2(0, 384)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_47hex")
+[node name="enemy_2" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.08165e-12, 88.25)
+sprite_frames = SubResource("SpriteFrames_3sgp2")
+autoplay = "default"
+flip_v = true
 
 [node name="Area2" type="Area2D" parent="."]
-position = Vector2(0, 384)
+position = Vector2(-0.25, 82)
 scale = Vector2(0.3, 0.3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2"]
 shape = SubResource("CircleShape2D_bdeh4")
 
-[node name="laser" type="Sprite2D" parent="."]
-position = Vector2(-1.85453e-07, 4.24267)
-rotation = 1.5708
-scale = Vector2(1.53426, 1)
-texture = ExtResource("3_8iio6")
+[node name="laser" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+sprite_frames = SubResource("SpriteFrames_6f1f6")
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-1.85453e-07, 4.24267)
@@ -53,7 +100,7 @@ rotation = 1.5708
 scale = Vector2(1.53426, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2.76529, 1.27898e-13)
+position = Vector2(-1.05437, 0.124989)
 shape = SubResource("RectangleShape2D_5dhjq")
 
 [connection signal="mouse_entered" from="Area1" to="." method="_on_area_1_mouse_entered"]

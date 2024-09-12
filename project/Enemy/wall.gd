@@ -15,13 +15,19 @@ func move(delta: float):
 		queue_free()
 
 func damage():
+	var pos: Vector2
 	if active1:
+		pos = $enemy_1.global_position
 		$enemy_1.queue_free()
 		active1 = false
 	elif  active2:
+		pos = $enemy_2.global_position
 		$enemy_2.queue_free()
 		active2 = false
 	hp -= 1
+	var exp = explosion_scene.instantiate()
+	exp.global_position = pos
+	get_parent().add_child(exp)
 	if hp == 0:
 		delete()
 	
@@ -49,3 +55,9 @@ func _on_area_2d_area_entered(area):
 
 func touched_soul():
 	pass
+
+
+func delete(remove_from_level: bool = true):
+	if remove_from_level:
+		level.remove(self)
+	queue_free()

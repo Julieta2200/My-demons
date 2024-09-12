@@ -45,6 +45,8 @@ func _ready():
 	add_child(wave_timer)
 	clock_left = $clock/c_left
 	clock_right = $clock/c_right
+	wall_left = $wall_points/left
+	wall_right = $wall_points/right
 	dialog_timer = Timer.new()
 	dialog_timer.wait_time = 3
 	add_child(dialog_timer)
@@ -76,7 +78,7 @@ func wave_1_interval():
 	elif rand < 0.5:
 		spawn_cloud()
 	else:
-		spawn_tank()
+		spawn_wall()
 	if wave_spawn_index == 10:
 		wave_spawn_index = 0
 		wave_timer.disconnect("timeout", wave_1_interval)
