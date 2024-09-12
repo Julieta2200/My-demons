@@ -58,6 +58,7 @@ animations = [{
 size = Vector2(86.8497, 8.25)
 
 [node name="wall" type="CharacterBody2D"]
+rotation = 1.5708
 scale = Vector2(4, 4)
 script = ExtResource("1_3cxyk")
 speed = 100.0
@@ -66,7 +67,7 @@ speed = 100.0
 position = Vector2(0, -87.5)
 sprite_frames = SubResource("SpriteFrames_g245x")
 autoplay = "default"
-frame_progress = 0.722792
+frame_progress = 0.957165
 
 [node name="Area1" type="Area2D" parent="."]
 position = Vector2(0, -87.5)

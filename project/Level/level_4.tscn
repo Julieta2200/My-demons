@@ -402,10 +402,10 @@ one_shot = true
 [node name="wall_points" type="Node2D" parent="."]
 
 [node name="left" type="Marker2D" parent="wall_points"]
-position = Vector2(0, 448)
+position = Vector2(512, 896)
 
 [node name="right" type="Marker2D" parent="wall_points"]
-position = Vector2(1344, 448)
+position = Vector2(512, 2.08165e-12)
 
 [node name="soul" parent="." instance=ExtResource("8_orx6n")]
 modulate = Color(1, 1, 1, 0)
@@ -439,7 +439,7 @@ position = Vector2(-4, -9)
 curve = SubResource("Curve2D_c6fsr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="light_path"]
-position = Vector2(517.101, 454.985)
+position = Vector2(517.099, 454.985)
 rotation = 2.99178
 progress = 3468.0
 
