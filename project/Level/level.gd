@@ -26,7 +26,9 @@ var first_skill_cooldown_timer: Timer
 
 var second_skill_cooldown: bool
 var second_skill_cooldown_timer: Timer
-#var second_skill_used: bool = false
+
+var third_skill_cooldown: bool
+var third_skill_cooldown_timer: Timer
 
 var wave_finished: bool
 
@@ -52,6 +54,14 @@ func _ready():
 	add_child(second_skill_cooldown_timer)
 	second_skill_cooldown_timer.start()
 	#second_skill
+	
+	#third_skill
+	third_skill_cooldown_timer = Timer.new()
+	third_skill_cooldown_timer.wait_time = 10
+	third_skill_cooldown_timer.one_shot = true
+	third_skill_cooldown_timer.connect("timeout", _on_third_skill_cooldown_timer_done)
+	add_child(third_skill_cooldown_timer)
+	#third_skill
 
 func _process(delta):
 	if Input.is_action_just_pressed("left"):
@@ -62,6 +72,8 @@ func _process(delta):
 		delete_enemies()
 	if Input.is_action_just_pressed("heal") and second_skill_cooldown:
 		heal()
+	if Input.is_action_just_pressed("enemy_slowdown"):
+		enemy_slowdown()
 
 func spawn_cloud():
 	var enemy = cloud_scene.instantiate()
@@ -157,5 +169,17 @@ func _on_second_skill_cooldown_timer_done():
 func heal():
 	second_skill_cooldown = false
 	hearts.add_heart()
+
+func _on_third_skill_cooldown_timer_done():
+	third_skill_cooldown = false
+
+
+func enemy_slowdown():
+	if third_skill_cooldown:
+		return
+	third_skill_cooldown = true
+	third_skill_cooldown_timer.start()
+	for enemy in enemies:
+		enemy.speed = enemy.speed / 4
 
 
