@@ -408,6 +408,7 @@ color = Color(1, 0, 0, 1)
 energy = 0.0
 blend_mode = 2
 texture = ExtResource("7_60ewt")
+texture_scale = 0.5
 
 [node name="dialog_start" type="Timer" parent="."]
 one_shot = true
@@ -448,7 +449,7 @@ position = Vector2(-4, -9)
 curve = SubResource("Curve2D_c6fsr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="light_path"]
-position = Vector2(517.101, 454.985)
+position = Vector2(517.099, 454.985)
 rotation = 2.99178
 progress = 3468.0
 
