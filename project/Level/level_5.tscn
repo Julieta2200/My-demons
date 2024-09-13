@@ -410,10 +410,10 @@ position = Vector2(512, 2.08165e-12)
 [node name="clock" type="Node2D" parent="."]
 
 [node name="c_left" type="Marker2D" parent="clock"]
-position = Vector2(-256, 0)
+position = Vector2(-256, 58)
 
 [node name="c_right" type="Marker2D" parent="clock"]
-position = Vector2(1472, 0)
+position = Vector2(1472, 60)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
@@ -435,7 +435,7 @@ position = Vector2(-4, -9)
 curve = SubResource("Curve2D_c6fsr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="light_path"]
-position = Vector2(517.099, 454.985)
+position = Vector2(517.101, 454.985)
 rotation = 2.99178
 progress = 3468.0
 

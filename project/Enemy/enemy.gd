@@ -46,3 +46,6 @@ func delete(remove_from_level: bool = true):
 
 func touched_soul():
 	delete()
+
+func slowdown():
+	speed = speed / 4
