@@ -11,6 +11,7 @@ var lilith_sprite_scene = preload("res://project/SpriteFrames/lilith_sprite.tscn
 var gary_sprite_scene = preload("res://project/SpriteFrames/gary_sprite.tscn")
 var ina_sprite_scene = preload("res://project/SpriteFrames/ina_sprite.tscn")
 var shiny_sprite_scene = preload("res://project/SpriteFrames/shiny_sprite.tscn")
+var ori_sprite_scene = preload("res://project/SpriteFrames/ori_sprite.tscn")
 var damage_light_scene = preload("res://project/Luos/damage_light.tscn")
 
 var clock_scene = preload("res://project/Enemy/clock.tscn")

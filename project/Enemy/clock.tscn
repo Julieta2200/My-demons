@@ -1,42 +1,74 @@
-[gd_scene load_steps=6 format=3 uid="uid://bglaolkyi87cb"]
+[gd_scene load_steps=11 format=3 uid="uid://bglaolkyi87cb"]
 
 [ext_resource type="Script" path="res://project/Enemy/clock.gd" id="1_2g2d6"]
-[ext_resource type="Texture2D" uid="uid://e75ieix78006" path="res://assets/Enemy/enemy.png" id="1_lu2l0"]
-[ext_resource type="Texture2D" uid="uid://vu74lmq6cp87" path="res://assets/images-removebg-preview (5).png" id="3_sgb32"]
+[ext_resource type="Texture2D" uid="uid://daa0qlketf2am" path="res://assets/Enemy/EyeMonster/eye_monster1.png" id="2_vffhq"]
+[ext_resource type="Texture2D" uid="uid://bv7kdndsytptl" path="res://assets/Enemy/EyeMonster/eye_monster2.png" id="3_irlxu"]
+[ext_resource type="Texture2D" uid="uid://dwvy258rsval7" path="res://assets/Enemy/EyeMonster/Laser1.png" id="4_e2x7p"]
+[ext_resource type="Texture2D" uid="uid://3bo7goqnr7qs" path="res://assets/Enemy/EyeMonster/Close.png" id="4_ofkpg"]
+[ext_resource type="Texture2D" uid="uid://7wnlnflhg3rq" path="res://assets/Enemy/EyeMonster/Laser2.png" id="5_kbrmw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tv66y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vffhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_irlxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_288or"]
-radius = 168.655
+radius = 18.7216
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0ywk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e2x7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kbrmw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5g1j"]
-size = Vector2(297.362, 36.6667)
+size = Vector2(6, 185.333)
 
 [node name="clock" type="CharacterBody2D"]
-position = Vector2(0, 64)
-scale = Vector2(0.3, 0.3)
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(4, 4)
 script = ExtResource("1_2g2d6")
 speed = 100.0
 
-[node name="enemy" type="Sprite2D" parent="."]
-texture = ExtResource("1_lu2l0")
+[node name="enemy" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tv66y")
+
+[node name="enemy_closed" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+texture = ExtResource("4_ofkpg")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_288or")
 
-[node name="laser" type="Sprite2D" parent="."]
-position = Vector2(-4.89015e-05, 1492.07)
-rotation = 1.5708
-scale = Vector2(5.97216, 1)
-texture = ExtResource("3_sgb32")
+[node name="laser" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 108.75)
+sprite_frames = SubResource("SpriteFrames_f0ywk")
 
 [node name="laser_area" type="Area2D" parent="."]
-position = Vector2(-4.89015e-05, 1492.07)
-rotation = 1.5708
-scale = Vector2(5.97216, 1)
+position = Vector2(0.25, 33.75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="laser_area"]
-position = Vector2(-63.6314, -3.05176e-05)
+position = Vector2(-0.5, 74.3333)
 shape = SubResource("RectangleShape2D_d5g1j")
 
 [node name="laser_visible_timer" type="Timer" parent="."]

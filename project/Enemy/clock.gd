@@ -14,10 +14,14 @@ func move(delta: float):
 
 func damage():
 	$laser.visible = false
+	$enemy.visible = false
+	$enemy_closed.visible = true
 	$laser_visible_timer.start()
 
 func _on_timer_timeout():
 	$laser.visible = true
+	$enemy.visible = true
+	$enemy_closed.visible = false
 
 func touched_soul():
 	pass
