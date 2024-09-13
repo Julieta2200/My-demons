@@ -33,7 +33,6 @@ var second_skill_cooldown_timer: Timer
 
 var third_skill_cooldown: bool
 var third_skill_cooldown_timer: Timer
-
 var wave_finished: bool
 
 @onready var soul: StaticBody2D = $soul
@@ -185,7 +184,7 @@ func heal():
 	hearts.add_heart()
 
 func _on_third_skill_cooldown_timer_done():
-	third_skill_cooldown = true
+	third_skill_cooldown = false
 
 
 func enemy_slowdown():
