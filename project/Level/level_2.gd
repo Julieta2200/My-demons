@@ -176,6 +176,7 @@ func start_wave(wave: Callable):
 	$CanvasLayer/Dialog.finish()
 
 func start_next_leve():
-	get_tree().change_scene_to_file("res://project/Level/level_3.tscn")
+	VillageManager.set_state(VillageManager.STATES.GARY)
+	get_tree().change_scene_to_file("res://project/Level/village.tscn")
 
 

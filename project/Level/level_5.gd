@@ -178,4 +178,7 @@ func start_wave(wave: Callable):
 	wave_timer.start()
 	$CanvasLayer/Dialog.finish()
 
+func start_next_leve():
+	VillageManager.set_state(VillageManager.STATES.ORI)
+	get_tree().change_scene_to_file("res://project/Level/village.tscn")
 

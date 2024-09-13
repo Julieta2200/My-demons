@@ -1,4 +1,4 @@
-extends Control
+class_name Dialog extends Control
 
 @onready var left_panel: Dictionary = {
 	"title": $Panel/title,

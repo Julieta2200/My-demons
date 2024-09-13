@@ -170,5 +170,6 @@ func start_wave(wave: Callable):
 
 
 func start_next_leve():
-	get_tree().change_scene_to_file("res://project/Level/level_2.tscn")
+	VillageManager.set_state(VillageManager.STATES.LILITH)
+	get_tree().change_scene_to_file("res://project/Level/village.tscn")
 
