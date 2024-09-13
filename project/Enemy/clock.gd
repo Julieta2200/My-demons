@@ -9,7 +9,7 @@ func _ready():
 func move(delta: float):
 	position = position.move_toward(target, speed * delta)
 	if position == target:
-		queue_free()
+		delete()
 	
 
 func damage():
