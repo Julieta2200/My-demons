@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr6aql8rvho0w"]
+[gd_scene load_steps=5 format=3 uid="uid://cr6aql8rvho0w"]
 
 [ext_resource type="Script" path="res://project/Dialog/dialog.gd" id="1_0ul2w"]
 [ext_resource type="Texture2D" uid="uid://ffp4bvek2ski" path="res://assets/ui/dialog panel.png" id="2_ugd4h"]
 [ext_resource type="FontFile" uid="uid://b351q1em2a4wa" path="res://assets/fonts/8-bit-fortress.ttf" id="3_g6mbt"]
+[ext_resource type="FontFile" uid="uid://cism57f1chly7" path="res://assets/fonts/PixelifySans-Regular.ttf" id="4_ydbcj"]
 
 [node name="Dialog" type="Control"]
 layout_mode = 3
@@ -49,7 +50,7 @@ offset_top = 83.0
 offset_right = -93.0
 offset_bottom = 233.0
 grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("3_g6mbt")
+theme_override_fonts/normal_font = ExtResource("4_ydbcj")
 theme_override_font_sizes/normal_font_size = 20
 text = "Lilith, I don’t know what’s happening."
 
@@ -96,7 +97,7 @@ offset_top = 83.0
 offset_right = -167.0
 offset_bottom = 233.0
 grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("3_g6mbt")
+theme_override_fonts/normal_font = ExtResource("4_ydbcj")
 theme_override_font_sizes/normal_font_size = 20
 text = "You’ve always been so kind and calm. Sometimes, that helped me get through the day."
 
