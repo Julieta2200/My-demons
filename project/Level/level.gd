@@ -194,6 +194,8 @@ func enemy_slowdown():
 	third_skill_cooldown = true
 	third_skill_cooldown_timer.start()
 	for enemy in enemies:
-		enemy.speed = enemy.speed / 4
+		enemy.slowdown()
+		
+			
 
 
