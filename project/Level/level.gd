@@ -40,6 +40,9 @@ var wave_finished: bool
 @onready var hearts = $CanvasLayer/hearts
 
 func _ready():
+	if !BgMusic.playing:
+		BgMusic.play()
+	
 	spawn_points = $points.get_children()
 	randomize()
 	#first_skill
@@ -66,6 +69,7 @@ func _ready():
 	third_skill_cooldown_timer.connect("timeout", _on_third_skill_cooldown_timer_done)
 	add_child(third_skill_cooldown_timer)
 	#third_skill
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("left"):
