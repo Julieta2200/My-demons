@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clkq7by07g7ir"]
+
+[ext_resource type="AudioStream" uid="uid://c3uualbuts6k3" path="res://assets/music/village.wav" id="1_l2lgh"]
+
+[node name="village_music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_l2lgh")
