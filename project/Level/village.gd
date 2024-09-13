@@ -72,7 +72,7 @@ var gary_end_dialog: Array[Dictionary] = [
 
 var ina_start_dialog: Array[Dictionary] = [
 	{"name": "Luos", "text": "Ina, you too…", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Gary", "text": "You too what?", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Gary", "text": "You too what?", "sprite": gary_sprite_scene, "right": false},
 	{"name": "Lilith", "text": "Do you know her, Luos?", "sprite": lilith_sprite_scene, "right": false},
 	{"name": "Luos", "text": "She’s my good friend and also my doctor who took care of me when I was ill.", "sprite": luos_sprite_scene, "right": false},
 	{"name": "Lilith", "text": "She seems sad.", "sprite": lilith_sprite_scene, "right": false},
@@ -81,7 +81,7 @@ var ina_start_dialog: Array[Dictionary] = [
 
 var ina_end_dialog: Array[Dictionary] = [
 	{"name": "Ina", "text": "Sorry about all that, kids.", "sprite": ina_sprite_scene, "right": true},
-	{"name": "Gary", "text": "We’re kind of getting used to it, haha.", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Gary", "text": "We’re kind of getting used to it, haha.", "sprite": gary_sprite_scene, "right": false},
 	{"name": "Ina", "text": "So, what’s going on here?", "sprite": ina_sprite_scene, "right": true},
 	{"name": "Luos", "text": "We’re trying to figure it out, but I’m glad we ran into you…", "sprite": luos_sprite_scene, "right": false},
 	{"name": "Lilith", "text": "Let’s move on.", "sprite": lilith_sprite_scene, "right": false},
