@@ -15,6 +15,10 @@ run/main_scene="res://project/Level/level_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+BgMusic="*res://assets/music/bg_music.tscn"
+
 [display]
 
 window/size/viewport_width=1024
