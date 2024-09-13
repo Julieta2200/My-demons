@@ -408,6 +408,7 @@ color = Color(0.917647, 0.27451, 0, 1)
 energy = 0.0
 blend_mode = 2
 texture = ExtResource("7_oeoms")
+texture_scale = 0.5
 
 [node name="dialog_start" type="Timer" parent="."]
 one_shot = true

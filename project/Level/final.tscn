@@ -1,0 +1,1216 @@
+[gd_scene load_steps=54 format=3 uid="uid://cxa6gb4ka30kf"]
+
+[ext_resource type="Script" path="res://project/Level/final.gd" id="1_g67o2"]
+[ext_resource type="Texture2D" uid="uid://bgmkioinxsn1l" path="res://assets/level1/Background/Background1.png" id="2_icqwq"]
+[ext_resource type="PackedScene" uid="uid://db3v5obicktak" path="res://project/Level/butterfly.tscn" id="3_i60kh"]
+[ext_resource type="Texture2D" uid="uid://bhvhxgt0msyld" path="res://assets/level1/Background/Black_layer.png" id="4_if4mt"]
+[ext_resource type="Texture2D" uid="uid://cej0m86tp12qp" path="res://assets/level1/Background/Background_black.png" id="5_8hojl"]
+[ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="7_uyxjt"]
+[ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="8_11t3u"]
+[ext_resource type="Texture2D" uid="uid://cthq2ayxddap3" path="res://assets/Enemy/Bumerang/Bumerang1.png" id="8_hqtvm"]
+[ext_resource type="PackedScene" uid="uid://c6j5qs2pkvj6i" path="res://project/Soul/luos_soul.tscn" id="9_22dal"]
+[ext_resource type="Texture2D" uid="uid://doesjssh52set" path="res://assets/Enemy/Bumerang/Bumerang2.png" id="9_q8ti7"]
+[ext_resource type="Texture2D" uid="uid://2ej8phto5hkl" path="res://assets/Enemy/Bumerang/Bumerang3.png" id="10_n162g"]
+[ext_resource type="PackedScene" uid="uid://bskbw7olq0032" path="res://project/Soul/ori.tscn" id="11_pi0kk"]
+[ext_resource type="Texture2D" uid="uid://dic6cbikdngmj" path="res://assets/Enemy/Tank/Tank_green1.png" id="12_5a82b"]
+[ext_resource type="Texture2D" uid="uid://d1vkcee6v0i0o" path="res://assets/Enemy/Tank/Tank_green2.png" id="13_3evem"]
+[ext_resource type="Texture2D" uid="uid://beqqmad7nrh33" path="res://assets/Enemy/Teleport/Teleport1.png" id="14_t14th"]
+[ext_resource type="Texture2D" uid="uid://pfsv4qoxm7me" path="res://assets/Enemy/Teleport/Teleport2.png" id="15_y5p3u"]
+[ext_resource type="Texture2D" uid="uid://buxlbgsvkmo0f" path="res://assets/Enemy/Cloud/Big/Enemy_big1.png" id="16_5o2by"]
+[ext_resource type="Texture2D" uid="uid://ciawt2fc0f0pi" path="res://assets/Enemy/Cloud/Big/Enemy_big2.png" id="17_pajvw"]
+[ext_resource type="Texture2D" uid="uid://td4saf4eurgc" path="res://assets/Enemy/Cloud/Big/Enemy_big3.png" id="18_em3qf"]
+[ext_resource type="Texture2D" uid="uid://cqtrcxc82smhv" path="res://assets/Enemy/Cloud/Big/Enemy_big4.png" id="19_emgl7"]
+[ext_resource type="PackedScene" uid="uid://dpbtd1qyphki3" path="res://project/Soul/lilith.tscn" id="20_xdp3h"]
+[ext_resource type="PackedScene" uid="uid://x23jr8gempkg" path="res://project/Soul/gary.tscn" id="21_qjl7l"]
+[ext_resource type="PackedScene" uid="uid://ivfp8gun81yp" path="res://project/Soul/ina.tscn" id="22_heaan"]
+[ext_resource type="PackedScene" uid="uid://cjy4jtkyr7twa" path="res://project/Soul/shiny.tscn" id="23_c2gku"]
+
+[sub_resource type="Animation" id="Animation_el77p"]
+resource_name = "Finish"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.19, 16.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 1.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_next_leve"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3wlfk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("light_path/PathFollow2D:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3468.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("light_path/PathFollow2D/appear_light:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("light_path/PathFollow2D/appear_light:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("soul:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("light_path/PathFollow2D/appear_light:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("light_path/PathFollow2D2:progress")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("light_path/PathFollow2D2/appear_light:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("light_path/PathFollow2D3:progress")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("light_path/PathFollow2D3/appear_light:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("background:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dugvw"]
+resource_name = "Start"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("soul:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5, 4.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.7, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 6.19]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("light_path/PathFollow2D:progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3468.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("light_path/PathFollow2D/appear_light:texture_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.2, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 2.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("light_path/PathFollow2D/appear_light:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.5, 4.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [16.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("light_path/PathFollow2D/appear_light:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.5, 4.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_monolog"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("light_path/PathFollow2D2:progress")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 3430.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("light_path/PathFollow2D2/appear_light:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("light_path/PathFollow2D3:progress")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.3, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 3390.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("light_path/PathFollow2D3/appear_light:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_tfajr"]
+resource_name = "lost"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_over"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4ktol"]
+resource_name = "dimming"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j11ot"]
+resource_name = "shining"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.992157, 0.992157, 0.992157, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.19, 6.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lilith:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("gary:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ina:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("shiny:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ori:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ori:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("shiny:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ina:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("gary:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("lilith:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4g37i"]
+_data = {
+"Finish": SubResource("Animation_el77p"),
+"RESET": SubResource("Animation_3wlfk"),
+"Start": SubResource("Animation_dugvw"),
+"dimming": SubResource("Animation_4ktol"),
+"lost": SubResource("Animation_tfajr"),
+"shining": SubResource("Animation_j11ot")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_c6fsr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 970, 445, 0, 0, 0, 0, 826, 690, 184.983, -22.6621, -184.983, 22.6621, 542, 835, 8.0936, 17.8059, -8.0936, -17.8059, 224, 686, 33.9931, 126.26, -33.9931, -126.26, 103, 473, 0, 0, 0, 0, 211, 252, -216.099, -9.71232, 216.099, 9.71232, 495, 164, 0, 0, 0, 0, 800, 382, 202.34, -29.9463, -202.34, 29.9463, 556, 652, 0, 0, 0, 0, 336, 509, -168.347, 42.8961, 168.347, -42.8961, 465, 325, 0, 0, 0, 0, 623, 439, 0, 0, 0, 0, 517, 455)
+}
+point_count = 13
+
+[sub_resource type="Curve2D" id="Curve2D_eobbk"]
+_data = {
+"points": PackedVector2Array(-0.576997, 70.9706, 0.576997, -70.9706, 701, 451, 152.327, -6.92396, -152.327, 6.92396, 513, 223, 0, -124.054, 0, 124.054, 333, 458, -128.67, 1.73099, 128.67, -1.73099, 516, 640, 2.30799, 72.7016, -2.30799, -72.7016, 701, 451)
+}
+point_count = 5
+
+[sub_resource type="Animation" id="Animation_6yvm0"]
+resource_name = "opacity"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0m5r"]
+_data = {
+"opacity": SubResource("Animation_6yvm0")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htjnh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_hqtvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q8ti7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n162g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_t1ept"]
+resource_name = "rotate"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udcat"]
+_data = {
+"rotate": SubResource("Animation_t1ept")
+}
+
+[sub_resource type="Animation" id="Animation_h33wc"]
+resource_name = "rotation"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D2:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.25, 1.25]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PathFollow2D3:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 1.5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PathFollow2D4:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.75, 1.75]
+}
+
+[sub_resource type="Animation" id="Animation_y1nu0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D2:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PathFollow2D3:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_87bal"]
+_data = {
+"RESET": SubResource("Animation_y1nu0"),
+"rotation": SubResource("Animation_h33wc")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssfh1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_5a82b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3evem")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_nq3f1"]
+resource_name = "opacity"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u3xsc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybg7y"]
+_data = {
+"RESET": SubResource("Animation_u3xsc"),
+"opacity": SubResource("Animation_nq3f1")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nl4vg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_t14th")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_y5p3u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_1rlpi"]
+resource_name = "opacity"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_012yl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_id6vj"]
+_data = {
+"RESET": SubResource("Animation_012yl"),
+"opacity": SubResource("Animation_1rlpi")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obtfg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_5o2by")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pajvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_em3qf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_emgl7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_q1yye"]
+resource_name = "opacity"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uxpyw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5sym7"]
+_data = {
+"RESET": SubResource("Animation_uxpyw"),
+"opacity": SubResource("Animation_q1yye")
+}
+
+[node name="final" type="Node2D"]
+script = ExtResource("1_g67o2")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(512, 448)
+scale = Vector2(4, 4)
+texture = ExtResource("2_icqwq")
+
+[node name="butterfly" parent="background" instance=ExtResource("3_i60kh")]
+position = Vector2(-56.5, 37.5923)
+
+[node name="butterfly2" parent="background" instance=ExtResource("3_i60kh")]
+position = Vector2(-33.25, -28.6083)
+frame = 1
+frame_progress = 0.0
+
+[node name="butterfly3" parent="background" instance=ExtResource("3_i60kh")]
+position = Vector2(22, -46)
+frame = 5
+frame_progress = 0.0
+
+[node name="butterfly4" parent="background" instance=ExtResource("3_i60kh")]
+position = Vector2(70, -38.5)
+frame = 4
+frame_progress = 0.0
+
+[node name="butterfly5" parent="background" instance=ExtResource("3_i60kh")]
+position = Vector2(45.5, 60)
+frame = 2
+frame_progress = 0.0
+
+[node name="black" type="Sprite2D" parent="background"]
+modulate = Color(1, 1, 1, 0.615686)
+z_index = 2
+texture = ExtResource("4_if4mt")
+
+[node name="black2" type="Sprite2D" parent="background"]
+texture = ExtResource("5_8hojl")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(512, 448)
+scale = Vector2(4, 4)
+color = Color(0, 0, 1, 1)
+energy = 0.0
+blend_mode = 2
+texture = ExtResource("7_uyxjt")
+texture_scale = 0.5
+
+[node name="dialog_start" type="Timer" parent="."]
+one_shot = true
+
+[node name="wall_points" type="Node2D" parent="."]
+
+[node name="left" type="Marker2D" parent="wall_points"]
+position = Vector2(512, 896)
+
+[node name="right" type="Marker2D" parent="wall_points"]
+position = Vector2(512, 2.08165e-12)
+
+[node name="clock" type="Node2D" parent="."]
+
+[node name="c_left" type="Marker2D" parent="clock"]
+position = Vector2(-256, 58)
+
+[node name="c_right" type="Marker2D" parent="clock"]
+position = Vector2(1472, 60)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Dialog" parent="CanvasLayer" instance=ExtResource("8_11t3u")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Start"
+libraries = {
+"": SubResource("AnimationLibrary_4g37i")
+}
+
+[node name="light_path" type="Path2D" parent="."]
+position = Vector2(-4, -9)
+curve = SubResource("Curve2D_c6fsr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="light_path"]
+position = Vector2(517.099, 454.985)
+rotation = 2.99178
+progress = 3468.0
+
+[node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D"]
+visible = false
+position = Vector2(0.367218, 0.538025)
+color = Color(0, 0, 1, 1)
+energy = 0.0
+blend_mode = 2
+texture = ExtResource("7_uyxjt")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="light_path"]
+position = Vector2(970, 445)
+rotation = 2.10216
+
+[node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D2"]
+visible = false
+position = Vector2(0.367218, 0.538025)
+color = Color(0, 0, 1, 1)
+energy = 16.0
+blend_mode = 2
+texture = ExtResource("7_uyxjt")
+texture_scale = 0.6
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="light_path"]
+position = Vector2(970, 445)
+rotation = 2.10216
+
+[node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D3"]
+visible = false
+position = Vector2(0.367218, 0.538025)
+color = Color(0, 0, 1, 1)
+energy = 16.0
+blend_mode = 2
+texture = ExtResource("7_uyxjt")
+texture_scale = 0.3
+
+[node name="soul" parent="." instance=ExtResource("9_22dal")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(512, 448)
+
+[node name="circle" type="Path2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 73.6691)
+scale = Vector2(1, 0.884892)
+curve = SubResource("Curve2D_eobbk")
+
+[node name="opacity" type="AnimationPlayer" parent="circle"]
+root_node = NodePath("../PathFollow2D/AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_q0m5r")
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="circle"]
+position = Vector2(701, 451)
+rotation = -1.56267
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="circle/PathFollow2D"]
+rotation = 3.89117
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_htjnh")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="circle/PathFollow2D/AnimatedSprite2D"]
+autoplay = "rotate"
+libraries = {
+"": SubResource("AnimationLibrary_udcat")
+}
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="circle"]
+position = Vector2(529.842, 222.935)
+rotation = -1.56267
+progress = 316.049
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="circle/PathFollow2D2"]
+rotation = 5.66456
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_htjnh")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="circle/PathFollow2D2/AnimatedSprite2D"]
+autoplay = "rotate"
+libraries = {
+"": SubResource("AnimationLibrary_udcat")
+}
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="circle"]
+position = Vector2(334.087, 418.665)
+rotation = -1.56267
+progress = 632.098
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="circle/PathFollow2D3"]
+rotation = 5.6456
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_htjnh")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="circle/PathFollow2D3/AnimatedSprite2D"]
+autoplay = "rotate"
+libraries = {
+"": SubResource("AnimationLibrary_udcat")
+}
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="circle"]
+position = Vector2(493.618, 639.647)
+rotation = -1.56267
+progress = 948.147
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="circle/PathFollow2D4"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_htjnh")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="circle/PathFollow2D4/AnimatedSprite2D"]
+autoplay = "rotate"
+libraries = {
+"": SubResource("AnimationLibrary_udcat")
+}
+
+[node name="rotation" type="AnimationPlayer" parent="circle"]
+autoplay = "rotation"
+libraries = {
+"": SubResource("AnimationLibrary_87bal")
+}
+
+[node name="tanks" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="tank1" type="AnimatedSprite2D" parent="tanks"]
+position = Vector2(888, 433)
+rotation = 1.5708
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ssfh1")
+autoplay = "default"
+frame_progress = 0.812518
+
+[node name="tank2" type="AnimatedSprite2D" parent="tanks"]
+position = Vector2(153, 439)
+rotation = 4.71239
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ssfh1")
+autoplay = "default"
+frame_progress = 0.866118
+
+[node name="opacity" type="AnimationPlayer" parent="tanks"]
+libraries = {
+"": SubResource("AnimationLibrary_ybg7y")
+}
+
+[node name="flashs" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="flash1" type="AnimatedSprite2D" parent="flashs"]
+position = Vector2(269, 244)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_nl4vg")
+autoplay = "default"
+
+[node name="flash2" type="AnimatedSprite2D" parent="flashs"]
+position = Vector2(789, 628)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_nl4vg")
+autoplay = "default"
+
+[node name="opacity" type="AnimationPlayer" parent="flashs"]
+libraries = {
+"": SubResource("AnimationLibrary_id6vj")
+}
+
+[node name="clouds" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="cloud1" type="AnimatedSprite2D" parent="clouds"]
+position = Vector2(886, 171)
+rotation = -0.539307
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_obtfg")
+autoplay = "default"
+frame_progress = 0.835497
+
+[node name="cloud2" type="AnimatedSprite2D" parent="clouds"]
+position = Vector2(144, 805)
+rotation = 2.45219
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_obtfg")
+autoplay = "default"
+frame_progress = 0.224937
+
+[node name="opacity" type="AnimationPlayer" parent="clouds"]
+libraries = {
+"": SubResource("AnimationLibrary_5sym7")
+}
+
+[node name="lilith" parent="." instance=ExtResource("20_xdp3h")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(245, 192)
+
+[node name="PointLight2D2" type="PointLight2D" parent="lilith"]
+color = Color(0.329412, 0.145098, 0.858824, 1)
+energy = 6.5
+blend_mode = 2
+texture = ExtResource("7_uyxjt")
+texture_scale = 0.5
+
+[node name="gary" parent="." instance=ExtResource("21_qjl7l")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(753, 182)
+
+[node name="PointLight2D" type="PointLight2D" parent="gary"]
+scale = Vector2(4, 4)
+color = Color(0.101961, 1, 0.156863, 1)
+energy = 1.9
+blend_mode = 2
+texture = ExtResource("7_uyxjt")
+texture_scale = 0.5
+
+[node name="ina" parent="." instance=ExtResource("22_heaan")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(498, 165)
+
+[node name="PointLight2D" type="PointLight2D" parent="ina"]
+scale = Vector2(4, 4)
+color = Color(0.917647, 0.27451, 0, 1)
+energy = 3.35
+blend_mode = 2
+texture = ExtResource("7_uyxjt")
+texture_scale = 0.5
+
+[node name="shiny" parent="." instance=ExtResource("23_c2gku")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(253, 704)
+
+[node name="PointLight2D" type="PointLight2D" parent="shiny"]
+scale = Vector2(4, 4)
+color = Color(1, 0.584314, 0, 1)
+energy = 2.79
+blend_mode = 2
+texture = ExtResource("7_uyxjt")
+texture_scale = 0.5
+
+[node name="ori" parent="." instance=ExtResource("11_pi0kk")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(744, 706)
+
+[node name="PointLight2D" type="PointLight2D" parent="ori"]
+scale = Vector2(4, 4)
+color = Color(1, 0, 0, 1)
+energy = 2.9
+blend_mode = 2
+texture = ExtResource("7_uyxjt")
+texture_scale = 0.5
+
+[connection signal="timeout" from="dialog_start" to="." method="_on_dialog_start_timeout"]

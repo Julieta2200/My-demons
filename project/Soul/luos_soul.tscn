@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6j5qs2pkvj6i"]
+
+[ext_resource type="Script" path="res://project/Soul/soul.gd" id="1_54vuo"]
+[ext_resource type="Texture2D" uid="uid://b0gowopbo4421" path="res://assets/Characters/Luos/Luos_idle1.png" id="2_cvih1"]
+[ext_resource type="Texture2D" uid="uid://dd5o15h3aijqp" path="res://assets/Characters/Luos/Luos_idle2.png" id="3_mt350"]
+[ext_resource type="Texture2D" uid="uid://cldlmjgvle468" path="res://assets/Characters/Luos/Shadow.png" id="4_7blpy"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dn70r"]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rvry5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cvih1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mt350")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_84x13"]
+resource_name = "iframe"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"iframe_finished"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_205p2"]
+_data = {
+"iframe": SubResource("Animation_84x13")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_it3no"]
+radius = 5.25
+height = 17.0
+
+[node name="luos" type="StaticBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_54vuo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_dn70r")
+position = Vector2(-0.25, -9.25)
+sprite_frames = SubResource("SpriteFrames_rvry5")
+autoplay = "default"
+frame_progress = 0.690722
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_205p2")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -3)
+shape = SubResource("CapsuleShape2D_it3no")
+
+[node name="shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 10.5)
+texture = ExtResource("4_7blpy")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
