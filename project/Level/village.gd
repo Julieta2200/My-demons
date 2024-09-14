@@ -30,17 +30,22 @@ var ina_sprite_scene = preload("res://project/SpriteFrames/ina_sprite.tscn")
 var shiny_sprite_scene = preload("res://project/SpriteFrames/shiny_sprite.tscn")
 
 
+var human_lilith_sprite_scene = preload("res://project/SpriteFrames/human_lilith_sprite.tscn")
+var human_gary_sprite_scene = preload("res://project/SpriteFrames/human_gary_sprite.tscn")
+var human_ina_sprite_scene = preload("res://project/SpriteFrames/human_ina_sprite.tscn")
+var human_shiny_sprite_scene = preload("res://project/SpriteFrames/human_shiny_sprite.tscn")
+var human_ori_sprite_scene = preload("res://project/SpriteFrames/human_ori_sprite.tscn")
 
 var lilith_start_dialog: Array[Dictionary] = [
 	{"name": "Luos", "text": "Lilith, I don’t know what’s happening.", "sprite": luos_sprite_scene, "right": false},
 	{"name": "Luos", "text": "Can’t you hear me?", "sprite": luos_sprite_scene, "right": false},
 	{"name": "Luos", "text": "Lilith...", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "Sometimes, it all feels like too much…", "sprite": lilith_sprite_scene, "right": true},
+	{"name": "Lilith", "text": "Sometimes, it all feels like too much…", "sprite": human_lilith_sprite_scene, "right": true},
 	{"name": "Luos", "text": "What feels like too much? What’s happening?", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "I’m okay for now, but tomorrow morning, it’ll all start again…", "sprite": lilith_sprite_scene, "right": true},
-	{"name": "Lilith", "text": "I don’t want the sun to come up.", "sprite": lilith_sprite_scene, "right": true},
+	{"name": "Lilith", "text": "I’m okay for now, but tomorrow morning, it’ll all start again…", "sprite": human_lilith_sprite_scene, "right": true},
+	{"name": "Lilith", "text": "I don’t want the sun to come up.", "sprite": human_lilith_sprite_scene, "right": true},
 	{"name": "Luos", "text": "I’m here for you, Lilith. Please, try to hear me…", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "Luos...", "sprite": lilith_sprite_scene, "right": true},
+	{"name": "Lilith", "text": "Luos...", "sprite": human_lilith_sprite_scene, "right": true},
 ]
 
 var lilith_end_dialog: Array[Dictionary] = [
@@ -57,7 +62,7 @@ var lilith_end_dialog: Array[Dictionary] = [
 var gary_start_dialog: Array[Dictionary] = [
 	{"name": "Luos", "text": "Lilith, isn’t that Gary?", "sprite": luos_sprite_scene, "right": false},	
 	{"name": "Lilith", "text": "Yes, it’s him. What’s he doing here so late?", "sprite": lilith_sprite_scene, "right": false},
-	{"name": "Gary", "text": "Aaah, why do I keep doing this?", "sprite": gary_sprite_scene, "right": true},
+	{"name": "Gary", "text": "Aaah, why do I keep doing this?", "sprite": human_gary_sprite_scene, "right": true},
 	{"name": "Lilith", "text": "What’s wrong with him?", "sprite": lilith_sprite_scene, "right": false},
 	{"name": "Luos", "text": "Gary, we’re here. Please, listen to us.", "sprite": luos_sprite_scene, "right": false},
 ]
@@ -76,7 +81,7 @@ var ina_start_dialog: Array[Dictionary] = [
 	{"name": "Lilith", "text": "Do you know her, Luos?", "sprite": lilith_sprite_scene, "right": false},
 	{"name": "Luos", "text": "She’s my good friend and also my doctor who took care of me when I was ill.", "sprite": luos_sprite_scene, "right": false},
 	{"name": "Lilith", "text": "She seems sad.", "sprite": lilith_sprite_scene, "right": false},
-	{"name": "Ina", "text": "It’s pointless…", "sprite": ina_sprite_scene, "right": true},
+	{"name": "Ina", "text": "It’s pointless…", "sprite": human_ina_sprite_scene, "right": true},
 ]
 
 var ina_end_dialog: Array[Dictionary] = [
@@ -91,7 +96,7 @@ var shiny_start_dialog: Array[Dictionary] = [
 	{"name": "Ina", "text": "Who’s that kid over there?", "sprite": ina_sprite_scene, "right": false},
 	{"name": "Luos", "text": "No idea, but I think we should be ready for another wave of demons.", "sprite": luos_sprite_scene, "right": false},
 	{"name": "Gary", "text": "I think he’s new in town.", "sprite": gary_sprite_scene, "right": false},
-	{"name": "Shiny", "text": "That’s annoying…", "sprite": shiny_sprite_scene, "right": true},
+	{"name": "Shiny", "text": "That’s annoying…", "sprite": human_shiny_sprite_scene, "right": true},
 ]
 
 var shiny_end_dialog: Array[Dictionary] = [
@@ -132,12 +137,18 @@ func _ready():
 	
 
 func prepare_lilith_state():
+	$sleep_human_lilith_sprite.visible = true
+	$human_lilith_sprite.queue_free()
 	lilith_area.queue_free()
 	luos.global_position = lilith_position.global_position
 	luos.freeze()
 	start_dialog(lilith_end_dialog)
 	
 func prepare_gary_state():
+	$sleep_human_lilith_sprite.visible = true
+	$human_lilith_sprite.queue_free()
+	$sleep_human_gary_sprite.visible = true
+	$human_gary_sprite.queue_free()
 	lilith_area.queue_free()
 	gary_area.queue_free()
 	luos.global_position = gary_positon.global_position
@@ -145,6 +156,12 @@ func prepare_gary_state():
 	start_dialog(gary_end_dialog)
 
 func prepare_ina_state():
+	$sleep_human_lilith_sprite.visible = true
+	$human_lilith_sprite.queue_free()
+	$sleep_human_gary_sprite.visible = true
+	$human_gary_sprite.queue_free()
+	$sleep_human_ina_sprite.visible = true
+	$human_ina_sprite.queue_free()
 	lilith_area.queue_free()
 	gary_area.queue_free()
 	ina_area.queue_free()
@@ -153,6 +170,14 @@ func prepare_ina_state():
 	start_dialog(ina_end_dialog)
 
 func prepare_shiny_state():
+	$sleep_human_lilith_sprite.visible = true
+	$human_lilith_sprite.queue_free()
+	$sleep_human_gary_sprite.visible = true
+	$human_gary_sprite.queue_free()
+	$sleep_human_ina_sprite.visible = true
+	$human_ina_sprite.queue_free()
+	$sleep_human_shiny_sprite.visible = true
+	$human_shiny_sprite.queue_free()
 	lilith_area.queue_free()
 	gary_area.queue_free()
 	ina_area.queue_free()
@@ -162,6 +187,16 @@ func prepare_shiny_state():
 	start_dialog(shiny_end_dialog)
 
 func prepare_ori_state():
+	$sleep_human_lilith_sprite.visible = true
+	$human_lilith_sprite.queue_free()
+	$sleep_human_gary_sprite.visible = true
+	$human_gary_sprite.queue_free()
+	$sleep_human_ina_sprite.visible = true
+	$human_ina_sprite.queue_free()
+	$sleep_human_shiny_sprite.visible = true
+	$human_shiny_sprite.queue_free()
+	$sleep_human_ori_sprite.visible = true
+	$human_ori_sprite.queue_free()
 	lilith_area.queue_free()
 	gary_area.queue_free()
 	ina_area.queue_free()

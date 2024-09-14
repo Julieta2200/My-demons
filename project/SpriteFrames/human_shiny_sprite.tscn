@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://468uj5mthrot"]
+
+[ext_resource type="Texture2D" uid="uid://cnvlf2v476uhj" path="res://assets/Shiny/Shiny_human1.png" id="1_y3ciw"]
+[ext_resource type="Texture2D" uid="uid://t0yv34x548q2" path="res://assets/Shiny/Shiny_human2.png" id="2_b8s71"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ak75k"]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y3ciw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b8s71")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="human_shiny_sprite" type="AnimatedSprite2D"]
+material = SubResource("CanvasItemMaterial_ak75k")
+position = Vector2(0, 45)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_nq1yv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.768139

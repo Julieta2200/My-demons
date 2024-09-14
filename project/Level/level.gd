@@ -61,7 +61,7 @@ func _ready():
 	
 	#second_skill
 	second_skill_cooldown_timer = Timer.new()
-	second_skill_cooldown_timer.wait_time = 10
+	second_skill_cooldown_timer.wait_time = 30
 	second_skill_cooldown_timer.one_shot = true
 	second_skill_cooldown_timer.connect("timeout", _on_second_skill_cooldown_timer_done)
 	add_child(second_skill_cooldown_timer)
@@ -70,7 +70,7 @@ func _ready():
 	
 	#third_skill
 	third_skill_cooldown_timer = Timer.new()
-	third_skill_cooldown_timer.wait_time = 10
+	third_skill_cooldown_timer.wait_time = 30
 	third_skill_cooldown_timer.one_shot = true
 	third_skill_cooldown_timer.connect("timeout", _on_third_skill_cooldown_timer_done)
 	add_child(third_skill_cooldown_timer)

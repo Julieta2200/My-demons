@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd3efrrjvq36t"]
+
+[ext_resource type="Texture2D" uid="uid://caw3i665uh5xm" path="res://assets/Gary/Gary_human1.png" id="1_d53gn"]
+[ext_resource type="Texture2D" uid="uid://dp8dvlu8kdqie" path="res://assets/Gary/Gary_human2.png" id="2_xg0rj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ak75k"]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d53gn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xg0rj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="human_gary_sprite" type="AnimatedSprite2D"]
+material = SubResource("CanvasItemMaterial_ak75k")
+position = Vector2(0, 45)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_nq1yv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.768139

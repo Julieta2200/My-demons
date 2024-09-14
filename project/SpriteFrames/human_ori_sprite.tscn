@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://calnxhy1sbmg0"]
+
+[ext_resource type="Texture2D" uid="uid://tb67gi40r3ii" path="res://assets/Ori/Ori_human1.png" id="1_tuvh1"]
+[ext_resource type="Texture2D" uid="uid://hwtyaera645f" path="res://assets/Ori/Ori_human2.png" id="2_v4uqr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ak75k"]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tuvh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_v4uqr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="human_ori_sprite" type="AnimatedSprite2D"]
+material = SubResource("CanvasItemMaterial_ak75k")
+position = Vector2(0, 45)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_nq1yv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.768139

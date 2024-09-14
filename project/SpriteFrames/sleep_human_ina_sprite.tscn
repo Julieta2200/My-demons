@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmmjt88caa0ws"]
+
+[ext_resource type="Texture2D" uid="uid://cogs6cdq3npci" path="res://assets/Ina/Ina_human3.png" id="1_e74qc"]
+[ext_resource type="Texture2D" uid="uid://cbc23fxq8u42e" path="res://assets/Ina/Ina_human4.png" id="2_8n1l1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e74qc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8n1l1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="sleep_human_ina_sprite" type="AnimatedSprite2D"]
+position = Vector2(0, 45)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_nq1yv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.914681

@@ -2,7 +2,7 @@ extends Node
 
 enum STATES {ZERO, LILITH, GARY, INA, SHINY, ORI}
 
-var state: STATES = STATES.ORI
+var state: STATES
 
 
 func set_state(s: STATES):

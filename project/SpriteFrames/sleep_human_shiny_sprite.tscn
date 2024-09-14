@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxtxxiqt2es36"]
+
+[ext_resource type="Texture2D" uid="uid://cdkchymrtslbm" path="res://assets/Shiny/Shiny_human3.png" id="1_8hfx6"]
+[ext_resource type="Texture2D" uid="uid://1gxqju5gcdm1" path="res://assets/Shiny/Shiny_human4.png" id="2_j7i5w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8hfx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j7i5w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="sleep_human_shiny_sprite" type="AnimatedSprite2D"]
+position = Vector2(0, 45)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_nq1yv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.914681

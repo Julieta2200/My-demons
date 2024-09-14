@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://g0v1n5jkif13"]
+[gd_scene load_steps=23 format=3 uid="uid://g0v1n5jkif13"]
 
 [ext_resource type="PackedScene" uid="uid://c1yq0s6dv87p" path="res://project/Luos/luos.tscn" id="1_553pf"]
 [ext_resource type="Script" path="res://project/Level/village.gd" id="1_mic0k"]
@@ -6,23 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="3_ddpta"]
 [ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="4_7e4vl"]
 [ext_resource type="AudioStream" uid="uid://c3uualbuts6k3" path="res://assets/music/village.wav" id="6_1aecc"]
+[ext_resource type="PackedScene" uid="uid://bsm26j0ccx867" path="res://project/SpriteFrames/human_lilith_sprite.tscn" id="7_1k6wk"]
+[ext_resource type="PackedScene" uid="uid://cd83khncl17w6" path="res://project/SpriteFrames/sleep_human_lilith_sprite.tscn" id="8_iauua"]
+[ext_resource type="PackedScene" uid="uid://dd3efrrjvq36t" path="res://project/SpriteFrames/human_gary_sprite.tscn" id="9_mb45b"]
+[ext_resource type="PackedScene" uid="uid://drw8ucsfhuov6" path="res://project/SpriteFrames/sleep_human_gary_sprite.tscn" id="10_dwmie"]
+[ext_resource type="PackedScene" uid="uid://dvmo7qvebwnv" path="res://project/SpriteFrames/human_ina_sprite.tscn" id="11_yja67"]
+[ext_resource type="PackedScene" uid="uid://bmmjt88caa0ws" path="res://project/SpriteFrames/sleep_human_ina_sprite.tscn" id="12_84giy"]
+[ext_resource type="PackedScene" uid="uid://468uj5mthrot" path="res://project/SpriteFrames/human_shiny_sprite.tscn" id="13_q73ga"]
+[ext_resource type="PackedScene" uid="uid://bxtxxiqt2es36" path="res://project/SpriteFrames/sleep_human_shiny_sprite.tscn" id="14_alpig"]
+[ext_resource type="PackedScene" uid="uid://calnxhy1sbmg0" path="res://project/SpriteFrames/human_ori_sprite.tscn" id="15_cq6f3"]
+[ext_resource type="PackedScene" uid="uid://doog750h40mx4" path="res://project/SpriteFrames/sleep_human_ori_sprite.tscn" id="16_sbh51"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir2ib"]
-
-[sub_resource type="Animation" id="Animation_rg7tq"]
-resource_name = "start"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_t74cx"]
 length = 0.001
@@ -67,12 +62,30 @@ tracks/1/keys = {
 "values": [0.5, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_rg7tq"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_slnj7"]
 _data = {
 "RESET": SubResource("Animation_t74cx"),
 "lightup": SubResource("Animation_ygvvr"),
 "start": SubResource("Animation_rg7tq")
 }
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kgnud"]
+light_mode = 1
 
 [node name="village" type="Node2D"]
 script = ExtResource("1_mic0k")
@@ -130,14 +143,14 @@ stream = ExtResource("6_1aecc")
 autoplay = true
 
 [node name="lilith_area" type="Area2D" parent="."]
-position = Vector2(1027, 455)
+position = Vector2(941, 455)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lilith_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
 [node name="PointLight2D" type="PointLight2D" parent="lilith_area"]
-position = Vector2(-16, 0)
-color = Color(0, 1, 1, 1)
+position = Vector2(71, 0)
+color = Color(0.329412, 0.145098, 0.858824, 1)
 energy = 3.93
 blend_mode = 2
 texture = ExtResource("4_7e4vl")
@@ -149,11 +162,11 @@ position = Vector2(1637, 455)
 shape = SubResource("RectangleShape2D_ir2ib")
 
 [node name="PointLight2D" type="PointLight2D" parent="gary_area"]
-position = Vector2(-18, 0)
+position = Vector2(51, 0)
 color = Color(0, 1, 0, 1)
-energy = 2.22
+energy = 5.75
 texture = ExtResource("4_7e4vl")
-texture_scale = 0.5
+texture_scale = 0.7
 
 [node name="ina_area" type="Area2D" parent="."]
 position = Vector2(2108, 455)
@@ -162,37 +175,37 @@ position = Vector2(2108, 455)
 shape = SubResource("RectangleShape2D_ir2ib")
 
 [node name="PointLight2D" type="PointLight2D" parent="ina_area"]
-position = Vector2(-18, 0)
+position = Vector2(46, 0)
 color = Color(0.917647, 0.27451, 0, 1)
 energy = 2.22
 texture = ExtResource("4_7e4vl")
-texture_scale = 0.5
+texture_scale = 0.8
 
 [node name="shiny_area" type="Area2D" parent="."]
-position = Vector2(3020, 457)
+position = Vector2(3011, 457)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shiny_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
 [node name="PointLight2D" type="PointLight2D" parent="shiny_area"]
-position = Vector2(-18, 0)
+position = Vector2(46, 0)
 color = Color(1, 1, 0.152941, 1)
 energy = 1.64
 texture = ExtResource("4_7e4vl")
-texture_scale = 0.5
+texture_scale = 0.8
 
 [node name="ori_area" type="Area2D" parent="."]
-position = Vector2(3612, 457)
+position = Vector2(3595, 457)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ori_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
 [node name="PointLight2D" type="PointLight2D" parent="ori_area"]
-position = Vector2(-18, 0)
+position = Vector2(46, -2)
 color = Color(1, 0, 0, 1)
 energy = 5.53
 texture = ExtResource("4_7e4vl")
-texture_scale = 0.5
+texture_scale = 0.8
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -236,6 +249,53 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_slnj7")
 }
+
+[node name="human_lilith_sprite" parent="." instance=ExtResource("7_1k6wk")]
+material = SubResource("CanvasItemMaterial_kgnud")
+position = Vector2(1016, 444)
+scale = Vector2(4, 4)
+flip_h = true
+
+[node name="sleep_human_lilith_sprite" parent="." instance=ExtResource("8_iauua")]
+visible = false
+position = Vector2(1007, 330)
+scale = Vector2(4, 4)
+
+[node name="human_gary_sprite" parent="." instance=ExtResource("9_mb45b")]
+position = Vector2(1690, 444)
+scale = Vector2(4, 4)
+flip_h = true
+
+[node name="sleep_human_gary_sprite" parent="." instance=ExtResource("10_dwmie")]
+visible = false
+position = Vector2(1686, 333)
+
+[node name="human_ina_sprite" parent="." instance=ExtResource("11_yja67")]
+position = Vector2(2152, 444)
+scale = Vector2(4, 4)
+flip_h = true
+
+[node name="sleep_human_ina_sprite" parent="." instance=ExtResource("12_84giy")]
+visible = false
+position = Vector2(2109, 343)
+
+[node name="human_shiny_sprite" parent="." instance=ExtResource("13_q73ga")]
+position = Vector2(3066, 444)
+scale = Vector2(4, 4)
+flip_h = true
+
+[node name="sleep_human_shiny_sprite" parent="." instance=ExtResource("14_alpig")]
+visible = false
+position = Vector2(3050, 317)
+
+[node name="human_ori_sprite" parent="." instance=ExtResource("15_cq6f3")]
+position = Vector2(3645, 444)
+scale = Vector2(4, 4)
+flip_h = true
+
+[node name="sleep_human_ori_sprite" parent="." instance=ExtResource("16_sbh51")]
+visible = false
+position = Vector2(3638, 319)
 
 [connection signal="body_entered" from="lilith_area" to="." method="_on_lilith_area_body_entered"]
 [connection signal="body_entered" from="gary_area" to="." method="_on_gary_area_body_entered"]

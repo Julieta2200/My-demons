@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://doog750h40mx4"]
+
+[ext_resource type="Texture2D" uid="uid://dj7vye36ilcax" path="res://assets/Ori/Ori_human3.png" id="1_m2b1q"]
+[ext_resource type="Texture2D" uid="uid://b3l7bwbo8yul3" path="res://assets/Ori/Ori_human4.png" id="2_oq1ua"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m2b1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oq1ua")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="sleep_human_ori_sprite" type="AnimatedSprite2D"]
+position = Vector2(0, 45)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_nq1yv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.914681

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd83khncl17w6"]
+
+[ext_resource type="Texture2D" uid="uid://crlyeuplv8bow" path="res://assets/Lilith/Lilith_human3.png" id="1_tqn46"]
+[ext_resource type="Texture2D" uid="uid://cjcmp4lf6wt48" path="res://assets/Lilith/Lilith_human4.png" id="2_m8hq5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq1yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tqn46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m8hq5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="sleep_human_lilith_sprite" type="AnimatedSprite2D"]
+position = Vector2(0, 45)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_nq1yv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.914681
