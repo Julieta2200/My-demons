@@ -30,12 +30,6 @@ energy = 2.22
 texture = ExtResource("4_7e4vl")
 texture_scale = 0.5
 
-[node name="music" type="AudioStreamPlayer2D" parent="luos"]
-position = Vector2(-81.75, -108.75)
-scale = Vector2(0.25, 0.25)
-stream = ExtResource("6_1aecc")
-autoplay = true
-
 [node name="lilith_area" type="Area2D" parent="."]
 position = Vector2(1241, 455)
 
@@ -89,6 +83,10 @@ position = Vector2(2195, 451)
 
 [node name="ori" type="Marker2D" parent="positions"]
 position = Vector2(2438, 451)
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1aecc")
+autoplay = true
 
 [connection signal="body_entered" from="lilith_area" to="." method="_on_lilith_area_body_entered"]
 [connection signal="body_entered" from="gary_area" to="." method="_on_gary_area_body_entered"]

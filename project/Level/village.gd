@@ -117,7 +117,7 @@ var ori_end_dialog: Array[Dictionary] = [
 ]
 
 func _ready():
-	VillageMusic.play()
+	BgMusic.stop()
 	match VillageManager.get_state():
 		VillageManager.STATES.LILITH:
 			prepare_lilith_state()

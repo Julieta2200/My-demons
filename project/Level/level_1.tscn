@@ -477,10 +477,8 @@ position = Vector2(-4, -9)
 curve = SubResource("Curve2D_c6fsr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="light_path"]
-
-position = Vector2(970, 445)
-rotation = 2.10216
-
+position = Vector2(517.101, 454.985)
+rotation = 2.99178
 progress = 3468.0
 
 [node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D"]

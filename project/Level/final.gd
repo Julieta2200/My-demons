@@ -6,10 +6,9 @@ var lilith_sprite_scene = preload("res://project/SpriteFrames/lilith_sprite.tscn
 var gary_sprite_scene = preload("res://project/SpriteFrames/gary_sprite.tscn")
 var ina_sprite_scene = preload("res://project/SpriteFrames/ina_sprite.tscn")
 
-func _ready():
-	BgMusic.play()
 
 func start_monolog():
+	BgMusic.play()
 	show_dialog("It’s nice to know everyone is okay now.")
 	await get_tree().create_timer(4).timeout
 	show_dialog("That was a really long night…")
@@ -41,6 +40,7 @@ func start_monolog():
 	await get_tree().create_timer(8).timeout
 	$CanvasLayer/Dialog.finish()
 	var enemies = $tanks.get_children()
+	$explosion.play()
 	enemies.append_array($flashs.get_children())
 	enemies.append_array($clouds.get_children())
 	enemies.append_array($circle.get_children())

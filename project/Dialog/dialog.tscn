@@ -108,3 +108,4 @@ offset_right = 921.0
 offset_bottom = 51.0
 
 [node name="sound" type="AudioStreamPlayer2D" parent="."]
+max_distance = 100000.0

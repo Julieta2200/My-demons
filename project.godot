@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 BgMusic="*res://assets/music/bg_music.tscn"
 VillageManager="*res://project/Level/village_manager.gd"
-VillageMusic="*res://project/Village/village_music.tscn"
 
 [display]
 

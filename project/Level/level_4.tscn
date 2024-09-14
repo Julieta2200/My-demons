@@ -486,8 +486,8 @@ blend_mode = 2
 texture = ExtResource("7_cyeu3")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="light_path"]
-position = Vector2(554.75, 449.302)
-rotation = 2.99178
+position = Vector2(970, 445)
+rotation = 2.10216
 
 [node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D2"]
 visible = false
@@ -499,8 +499,8 @@ texture = ExtResource("7_cyeu3")
 texture_scale = 0.6
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="light_path"]
-position = Vector2(594.313, 443.33)
-rotation = 2.99178
+position = Vector2(970, 445)
+rotation = 2.10216
 
 [node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D3"]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cxa6gb4ka30kf"]
+[gd_scene load_steps=56 format=3 uid="uid://cxa6gb4ka30kf"]
 
 [ext_resource type="Script" path="res://project/Level/final.gd" id="1_g67o2"]
 [ext_resource type="Texture2D" uid="uid://bgmkioinxsn1l" path="res://assets/level1/Background/Background1.png" id="2_icqwq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bhvhxgt0msyld" path="res://assets/level1/Background/Black_layer.png" id="4_if4mt"]
 [ext_resource type="Texture2D" uid="uid://cej0m86tp12qp" path="res://assets/level1/Background/Background_black.png" id="5_8hojl"]
 [ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="7_uyxjt"]
+[ext_resource type="AudioStream" uid="uid://dkyvfdrxmhhcu" path="res://assets/SFX/Level Start Spirit Spiral.mp3" id="8_6c0rx"]
 [ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="8_11t3u"]
 [ext_resource type="Texture2D" uid="uid://cthq2ayxddap3" path="res://assets/Enemy/Bumerang/Bumerang1.png" id="8_hqtvm"]
 [ext_resource type="PackedScene" uid="uid://c6j5qs2pkvj6i" path="res://project/Soul/luos_soul.tscn" id="9_22dal"]
@@ -24,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://x23jr8gempkg" path="res://project/Soul/gary.tscn" id="21_qjl7l"]
 [ext_resource type="PackedScene" uid="uid://ivfp8gun81yp" path="res://project/Soul/ina.tscn" id="22_heaan"]
 [ext_resource type="PackedScene" uid="uid://cjy4jtkyr7twa" path="res://project/Soul/shiny.tscn" id="23_c2gku"]
+[ext_resource type="AudioStream" uid="uid://4rlotoanjaia" path="res://assets/SFX/Kill All Enemies Special Attack.mp3" id="26_av5u3"]
 
 [sub_resource type="Animation" id="Animation_el77p"]
 resource_name = "Finish"
@@ -338,6 +340,21 @@ tracks/10/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/11/type = "audio"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("sound")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_6c0rx")
+}],
+"times": PackedFloat32Array(-1.2)
+}
+tracks/11/use_blend = true
 
 [sub_resource type="Animation" id="Animation_4ktol"]
 resource_name = "dimming"
@@ -951,7 +968,7 @@ position = Vector2(-4, -9)
 curve = SubResource("Curve2D_c6fsr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="light_path"]
-position = Vector2(517.099, 454.985)
+position = Vector2(517.101, 454.985)
 rotation = 2.99178
 progress = 3468.0
 
@@ -1059,7 +1076,7 @@ libraries = {
 }
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="circle"]
-position = Vector2(493.619, 639.647)
+position = Vector2(493.618, 639.647)
 rotation = -1.56267
 progress = 948.147
 rotates = false
@@ -1212,5 +1229,10 @@ energy = 2.9
 blend_mode = 2
 texture = ExtResource("7_uyxjt")
 texture_scale = 0.5
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_av5u3")
 
 [connection signal="timeout" from="dialog_start" to="." method="_on_dialog_start_timeout"]

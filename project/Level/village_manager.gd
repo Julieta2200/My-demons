@@ -4,6 +4,7 @@ enum STATES {ZERO, LILITH, GARY, INA, SHINY, ORI}
 
 var state: STATES
 
+
 func set_state(s: STATES):
 	state = s
 
