@@ -215,6 +215,7 @@ func enemy_slowdown():
 	for enemy in enemies:
 		enemy.slowdown()
 	skills.deactive_skill(2)
+
 		
 
 
