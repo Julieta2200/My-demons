@@ -25,6 +25,7 @@ func damage():
 		$enemy_2.queue_free()
 		active2 = false
 	hp -= 1
+	$sound.play()
 	var exp = explosion_scene.instantiate()
 	exp.global_position = pos
 	get_parent().add_child(exp)

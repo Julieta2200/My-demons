@@ -64,6 +64,8 @@ func _on_third_skill_cooldown_timer_done():
 	$CanvasLayer/support.skill(2)
 
 func _on_dialog_start_timeout():
+	if !BgMusic.playing:
+		BgMusic.play()
 	dialog_timer.connect("timeout", show_initial_dialog)
 	start_dialog()
 	

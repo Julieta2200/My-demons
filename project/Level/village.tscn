@@ -1,46 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://g0v1n5jkif13"]
+[gd_scene load_steps=7 format=3 uid="uid://g0v1n5jkif13"]
 
 [ext_resource type="PackedScene" uid="uid://c1yq0s6dv87p" path="res://project/Luos/luos.tscn" id="1_553pf"]
 [ext_resource type="Script" path="res://project/Level/village.gd" id="1_mic0k"]
+[ext_resource type="Texture2D" uid="uid://cii478m4l3hps" path="res://assets/backgrounds/Sprite-00001.png" id="2_70q07"]
 [ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="3_ddpta"]
+[ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="4_7e4vl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir2ib"]
 
 [node name="village" type="Node2D"]
 script = ExtResource("1_mic0k")
 
+[node name="village" type="Sprite2D" parent="."]
+position = Vector2(4000, 448)
+scale = Vector2(4, 4)
+texture = ExtResource("2_70q07")
+
 [node name="luos" parent="." instance=ExtResource("1_553pf")]
-position = Vector2(512, 448)
+position = Vector2(327, 435)
 
 [node name="Camera2D" type="Camera2D" parent="luos"]
+position = Vector2(0, 3)
 limit_left = 0
 
+[node name="PointLight2D" type="PointLight2D" parent="luos"]
+color = Color(0, 0, 1, 1)
+energy = 2.22
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.5
+
 [node name="lilith_area" type="Area2D" parent="."]
-position = Vector2(805, 458)
+position = Vector2(1241, 455)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lilith_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
 [node name="gary_area" type="Area2D" parent="."]
-position = Vector2(1186, 458)
+position = Vector2(1622, 455)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gary_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
 [node name="ina_area" type="Area2D" parent="."]
-position = Vector2(1525, 458)
+position = Vector2(1961, 455)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ina_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
 [node name="shiny_area" type="Area2D" parent="."]
-position = Vector2(1807, 460)
+position = Vector2(2243, 457)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shiny_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
 [node name="ori_area" type="Area2D" parent="."]
-position = Vector2(2044, 460)
+position = Vector2(2480, 457)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ori_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
@@ -55,19 +69,19 @@ wait_time = 3.0
 [node name="positions" type="Node2D" parent="."]
 
 [node name="lilith" type="Marker2D" parent="positions"]
-position = Vector2(770, 448)
+position = Vector2(1195, 448)
 
 [node name="gary" type="Marker2D" parent="positions"]
-position = Vector2(1145, 448)
+position = Vector2(1570, 448)
 
 [node name="ina" type="Marker2D" parent="positions"]
-position = Vector2(1480, 451)
+position = Vector2(1905, 451)
 
 [node name="shiny" type="Marker2D" parent="positions"]
-position = Vector2(1770, 451)
+position = Vector2(2195, 451)
 
 [node name="ori" type="Marker2D" parent="positions"]
-position = Vector2(2013, 451)
+position = Vector2(2438, 451)
 
 [connection signal="body_entered" from="lilith_area" to="." method="_on_lilith_area_body_entered"]
 [connection signal="body_entered" from="gary_area" to="." method="_on_gary_area_body_entered"]

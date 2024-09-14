@@ -52,6 +52,8 @@ func _ready():
 	next_dialog = initial_dialog
 	
 func _on_dialog_start_timeout():
+	if !BgMusic.playing:
+		BgMusic.play()
 	dialog_timer.connect("timeout", show_initial_dialog)
 	start_dialog()
 	

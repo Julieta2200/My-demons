@@ -50,7 +50,7 @@ offset_right = -93.0
 offset_bottom = 233.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("4_ydbcj")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 30
 text = "Lilith, I don’t know what’s happening."
 
 [node name="sprite_container" type="Control" parent="Panel"]
@@ -96,7 +96,7 @@ offset_right = -167.0
 offset_bottom = 233.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("4_ydbcj")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 30
 text = "You’ve always been so kind and calm. Sometimes, that helped me get through the day."
 
 [node name="sprite_container" type="Control" parent="Reverse"]
@@ -106,3 +106,5 @@ offset_left = 921.0
 offset_top = 51.0
 offset_right = 921.0
 offset_bottom = 51.0
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]

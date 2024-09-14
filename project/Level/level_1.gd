@@ -54,6 +54,8 @@ func _ready():
 	
 
 func _on_dialog_start_timeout():
+	if !BgMusic.playing:
+		BgMusic.play()
 	dialog_timer.connect("timeout", show_initial_dialog)
 	start_dialog()
 	

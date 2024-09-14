@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4rlotoanjaia"
+path="res://.godot/imported/Kill All Enemies Special Attack.mp3-abc2869861021a4198c2d4b5ceb9b2f3.mp3str"
+
+[deps]
+
+source_file="res://assets/SFX/Kill All Enemies Special Attack.mp3"
+dest_files=["res://.godot/imported/Kill All Enemies Special Attack.mp3-abc2869861021a4198c2d4b5ceb9b2f3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

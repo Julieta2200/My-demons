@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://drur3dcgyl8c5"]
+[gd_scene load_steps=23 format=3 uid="uid://drur3dcgyl8c5"]
 
 [ext_resource type="Script" path="res://project/Level/level_3.gd" id="1_verc3"]
 [ext_resource type="Texture2D" uid="uid://bgmkioinxsn1l" path="res://assets/level1/Background/Background1.png" id="2_nsuya"]
@@ -11,6 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="9_2bpd6"]
 [ext_resource type="PackedScene" uid="uid://dp0cgtj05w25g" path="res://project/Level/hearts.tscn" id="10_btgq6"]
 [ext_resource type="PackedScene" uid="uid://dyswtt6lkwike" path="res://project/Level/support.tscn" id="11_8qj5j"]
+[ext_resource type="AudioStream" uid="uid://dkyvfdrxmhhcu" path="res://assets/SFX/Level Start Spirit Spiral.mp3" id="12_7lujg"]
+[ext_resource type="AudioStream" uid="uid://rrh5uxwld3rp" path="res://assets/SFX/Click MISS.mp3" id="12_sexhb"]
+[ext_resource type="AudioStream" uid="uid://4rlotoanjaia" path="res://assets/SFX/Kill All Enemies Special Attack.mp3" id="13_h16qm"]
+[ext_resource type="AudioStream" uid="uid://ci31xpalmkjl3" path="res://assets/SFX/Extra Heart Special Attack.mp3" id="14_6qyah"]
+[ext_resource type="AudioStream" uid="uid://do5fet3ssxy4n" path="res://assets/SFX/Slow Enemies Special Attack.mp3" id="15_3efv1"]
 
 [sub_resource type="Animation" id="Animation_el77p"]
 resource_name = "Finish"
@@ -178,7 +183,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_dugvw"]
 resource_name = "Start"
-length = 5.0
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -313,6 +318,21 @@ tracks/10/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/11/type = "audio"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("sound")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_7lujg")
+}],
+"times": PackedFloat32Array(-1.3)
+}
+tracks/11/use_blend = true
 
 [sub_resource type="Animation" id="Animation_tfajr"]
 resource_name = "lost"
@@ -408,6 +428,7 @@ color = Color(0.917647, 0.27451, 0, 1)
 energy = 0.0
 blend_mode = 2
 texture = ExtResource("7_oeoms")
+texture_scale = 0.5
 
 [node name="dialog_start" type="Timer" parent="."]
 one_shot = true
@@ -465,8 +486,8 @@ blend_mode = 2
 texture = ExtResource("7_oeoms")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="light_path"]
-position = Vector2(970, 445)
-rotation = 2.10216
+position = Vector2(554.75, 449.302)
+rotation = 2.99178
 
 [node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D2"]
 visible = false
@@ -478,8 +499,8 @@ texture = ExtResource("7_oeoms")
 texture_scale = 0.6
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="light_path"]
-position = Vector2(970, 445)
-rotation = 2.10216
+position = Vector2(594.313, 443.33)
+rotation = 2.99178
 
 [node name="appear_light" type="PointLight2D" parent="light_path/PathFollow2D3"]
 visible = false
@@ -489,5 +510,23 @@ energy = 16.0
 blend_mode = 2
 texture = ExtResource("7_oeoms")
 texture_scale = 0.3
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_sexhb")
+volume_db = 3.0
+
+[node name="enemy_explosion" type="AudioStreamPlayer2D" parent="."]
+
+[node name="skill1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_h16qm")
+
+[node name="skill2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_6qyah")
+
+[node name="skill3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_3efv1")
 
 [connection signal="timeout" from="dialog_start" to="." method="_on_dialog_start_timeout"]

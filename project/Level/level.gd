@@ -15,6 +15,15 @@ var ori_sprite_scene = preload("res://project/SpriteFrames/ori_sprite.tscn")
 var damage_light_scene = preload("res://project/Luos/damage_light.tscn")
 var clock_scene = preload("res://project/Enemy/clock.tscn")
 
+var hits = [
+	preload("res://assets/SFX/hit1.mp3"),
+	preload("res://assets/SFX/hit2.mp3"),
+	preload("res://assets/SFX/hit3.mp3"),
+	preload("res://assets/SFX/hit4.mp3"),
+	preload("res://assets/SFX/hit5.mp3"),
+	preload("res://assets/SFX/hit6.mp3")
+]
+
 var spawn_points: Array
 
 var wall_left: Marker2D
@@ -66,10 +75,12 @@ func _ready():
 	third_skill_cooldown_timer.connect("timeout", _on_third_skill_cooldown_timer_done)
 	add_child(third_skill_cooldown_timer)
 	#third_skill
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("left"):
 		var dl = damage_light_scene.instantiate()
+		$click.play()
 		dl.position = get_viewport().get_mouse_position()
 		add_child(dl)
 	if Input.is_action_just_pressed("kill_all"):
@@ -151,6 +162,9 @@ func spawn(enemy: Enemy):
 
 func remove(enemy: Enemy):
 	enemies.erase(enemy)
+	var r = randi_range(0,5)
+	$enemy_explosion.stream = hits[r]
+	$enemy_explosion.play()
 	if enemies.size() == 0 and wave_finished:
 		start_dialog()
 
@@ -163,6 +177,7 @@ func delete_enemies():
 	for enemy in enemies:
 		enemy.delete(false)
 	enemies = {}
+	$skill1.play()
 	first_skill_cooldown = true
 	first_skill_cooldown_timer.start()
 	skills.deactive_skill(0)
@@ -179,11 +194,11 @@ func start_over():
 	
 func _on_second_skill_cooldown_timer_done():
 	second_skill_cooldown = true
-	print("after 10 sec")
 	
 
 func heal():
 	second_skill_cooldown = false
+	$skill2.play()
 	hearts.add_heart()
 	skills.deactive_skill(1)
 
@@ -195,6 +210,7 @@ func enemy_slowdown():
 	if third_skill_cooldown:
 		return
 	third_skill_cooldown = true
+	$skill3.play()
 	third_skill_cooldown_timer.start()
 	for enemy in enemies:
 		enemy.slowdown()
