@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmjuckxuiimr0"]
+[gd_scene load_steps=14 format=3 uid="uid://cmjuckxuiimr0"]
 
 [ext_resource type="Script" path="res://project/Enemy/wall.gd" id="1_3cxyk"]
 [ext_resource type="Texture2D" uid="uid://dlleakwcnogu7" path="res://assets/Enemy/Spider/Spider1.png" id="2_ra2qk"]
 [ext_resource type="Texture2D" uid="uid://bppi4ce8dmt8u" path="res://assets/Enemy/Spider/Spider2.png" id="3_g8yb0"]
 [ext_resource type="Texture2D" uid="uid://calbkpsr1bgp2" path="res://assets/Enemy/Spider/Laser1.png" id="4_2x8fn"]
 [ext_resource type="Texture2D" uid="uid://yablaqpd4yb6" path="res://assets/Enemy/Spider/Laser2.png" id="5_cdhxw"]
+[ext_resource type="AudioStream" uid="uid://ckyxnvb4fl2ea" path="res://assets/SFX/hit1.mp3" id="6_pum2d"]
+[ext_resource type="AudioStream" uid="uid://cgm5ybd6obijn" path="res://assets/SFX/Laser Beam.mp3" id="7_d8dnd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g245x"]
 animations = [{
@@ -103,6 +105,14 @@ scale = Vector2(1.53426, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1.05437, 0.124989)
 shape = SubResource("RectangleShape2D_5dhjq")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_pum2d")
+
+[node name="laser2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_d8dnd")
+volume_db = -8.153
+autoplay = true
 
 [connection signal="mouse_entered" from="Area1" to="." method="_on_area_1_mouse_entered"]
 [connection signal="mouse_exited" from="Area1" to="." method="_on_area_1_mouse_exited"]

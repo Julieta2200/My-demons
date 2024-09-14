@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkyvfdrxmhhcu"
+path="res://.godot/imported/Level Start Spirit Spiral.mp3-fab34bc51845779d2921a3e0fa9863e5.mp3str"
+
+[deps]
+
+source_file="res://assets/SFX/Level Start Spirit Spiral.mp3"
+dest_files=["res://.godot/imported/Level Start Spirit Spiral.mp3-fab34bc51845779d2921a3e0fa9863e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

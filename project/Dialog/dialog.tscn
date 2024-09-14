@@ -106,3 +106,5 @@ offset_left = 921.0
 offset_top = 51.0
 offset_right = 921.0
 offset_bottom = 51.0
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
