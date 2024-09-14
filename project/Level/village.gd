@@ -95,14 +95,14 @@ var ina_end_dialog: Array[Dictionary] = [
 var shiny_start_dialog: Array[Dictionary] = [
 	{"name": "Ina", "text": "Who’s that kid over there?", "sprite": ina_sprite_scene, "right": false},
 	{"name": "Luos", "text": "No idea, but I think we should be ready for another wave of demons.", "sprite": luos_sprite_scene, "right": false},
-	{"name": "Gary", "text": "I think he’s new in town.", "sprite": gary_sprite_scene, "right": false},
+	{"name": "Gary", "text": "I think she’s new in town.", "sprite": gary_sprite_scene, "right": false},
 	{"name": "Shiny", "text": "That’s annoying…", "sprite": human_shiny_sprite_scene, "right": true},
 ]
 
 var shiny_end_dialog: Array[Dictionary] = [
 	{"name": "Gary", "text": "Shiny, can you hear me?", "sprite": gary_sprite_scene, "right": false},
-	{"name": "Lilith", "text": "He’s still sleeping.", "sprite": lilith_sprite_scene, "right": false},
-	{"name": "Luos", "text": "Let him rest. He had a tough battle.", "sprite": luos_sprite_scene, "right": false},
+	{"name": "Lilith", "text": "She’s still sleeping.", "sprite": lilith_sprite_scene, "right": false},
+	{"name": "Luos", "text": "Let her rest. She had a tough battle.", "sprite": luos_sprite_scene, "right": false},
 	{"name": "Gary", "text": "See you later, friend…", "sprite": gary_sprite_scene, "right": false},
 	{"name": "Lilith", "text": "That’s so sweet, Gary!", "sprite": lilith_sprite_scene, "right": false},
 ]
