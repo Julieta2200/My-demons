@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyswtt6lkwike"]
+[gd_scene load_steps=10 format=3 uid="uid://dyswtt6lkwike"]
 
 [ext_resource type="Texture2D" uid="uid://cjevf55y7o4ss" path="res://assets/ui/Item.png" id="1_c4uft"]
 [ext_resource type="Script" path="res://project/Level/support.gd" id="1_gntdn"]
 [ext_resource type="FontFile" uid="uid://b351q1em2a4wa" path="res://assets/fonts/8-bit-fortress.ttf" id="2_inmar"]
-[ext_resource type="Texture2D" uid="uid://ddi3aa88olhm7" path="res://assets/ui/p-removebg-preview.png" id="4_c8dg5"]
+[ext_resource type="Texture2D" uid="uid://db7b2f2t5rhbm" path="res://assets/ui/Bomb2.png" id="3_c400c"]
+[ext_resource type="Texture2D" uid="uid://23cmqbqsr4tv" path="res://assets/ui/Bomb1.png" id="4_gd1k0"]
+[ext_resource type="Texture2D" uid="uid://cg2p1diuavepm" path="res://assets/ui/Heart2.png" id="5_ifuhy"]
+[ext_resource type="Texture2D" uid="uid://bek8sjjuqvunq" path="res://assets/ui/Clock2.png" id="6_68l88"]
+[ext_resource type="Texture2D" uid="uid://bcgbh8xt2ru6y" path="res://assets/ui/Heart1.png" id="7_8va2i"]
+[ext_resource type="Texture2D" uid="uid://bpj2qwkheum4r" path="res://assets/ui/Clock1.png" id="9_qim2q"]
 
 [node name="support" type="Control"]
 layout_mode = 3
@@ -18,21 +23,11 @@ script = ExtResource("1_gntdn")
 layout_mode = 0
 offset_left = 711.0
 offset_top = 21.0
-offset_right = 783.0
-offset_bottom = 93.0
+offset_right = 786.0
+offset_bottom = 96.0
 texture = ExtResource("1_c4uft")
 
-[node name="Label" type="Label" parent="1"]
-layout_mode = 0
-offset_left = 49.0
-offset_top = 43.0
-offset_right = 89.0
-offset_bottom = 75.0
-theme_override_fonts/font = ExtResource("2_inmar")
-theme_override_font_sizes/font_size = 25
-text = "Q"
-
-[node name="TextureRect" type="TextureRect" parent="1"]
+[node name="active" type="TextureRect" parent="1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,34 +35,47 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -26.0
-offset_top = -25.0
+offset_top = -30.0
 offset_right = 26.0
-offset_bottom = 25.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_c8dg5")
-expand_mode = 1
+texture = ExtResource("4_gd1k0")
+
+[node name="deactive" type="TextureRect" parent="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -30.0
+offset_right = 26.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_c400c")
+
+[node name="Label" type="Label" parent="1"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 49.0
+offset_right = 94.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("2_inmar")
+theme_override_font_sizes/font_size = 20
+text = "Q"
 
 [node name="2" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 812.0
 offset_top = 21.0
-offset_right = 884.0
-offset_bottom = 93.0
+offset_right = 887.0
+offset_bottom = 96.0
 texture = ExtResource("1_c4uft")
 
-[node name="Label" type="Label" parent="2"]
-layout_mode = 0
-offset_left = 49.0
-offset_top = 43.0
-offset_right = 89.0
-offset_bottom = 75.0
-theme_override_fonts/font = ExtResource("2_inmar")
-theme_override_font_sizes/font_size = 25
-text = "W
-"
-
-[node name="TextureRect" type="TextureRect" parent="2"]
+[node name="active" type="TextureRect" parent="2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,44 +83,83 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -26.0
-offset_top = -26.0
+offset_top = -22.0
 offset_right = 26.0
-offset_bottom = 26.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_c8dg5")
-expand_mode = 1
+texture = ExtResource("7_8va2i")
+
+[node name="deactive" type="TextureRect" parent="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -22.0
+offset_right = 26.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ifuhy")
+
+[node name="Label" type="Label" parent="2"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 48.0
+offset_right = 93.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("2_inmar")
+theme_override_font_sizes/font_size = 20
+text = "W
+"
 
 [node name="3" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 912.0
 offset_top = 21.0
-offset_right = 984.0
-offset_bottom = 93.0
+offset_right = 987.0
+offset_bottom = 96.0
 texture = ExtResource("1_c4uft")
 
-[node name="Label" type="Label" parent="3"]
-layout_mode = 0
-offset_left = 49.0
-offset_top = 43.0
-offset_right = 89.0
-offset_bottom = 75.0
-theme_override_fonts/font = ExtResource("2_inmar")
-theme_override_font_sizes/font_size = 25
-text = "E"
-
-[node name="TextureRect" type="TextureRect" parent="3"]
+[node name="active" type="TextureRect" parent="3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -26.0
-offset_right = 26.0
-offset_bottom = 26.0
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_c8dg5")
-expand_mode = 1
+texture = ExtResource("9_qim2q")
+
+[node name="deactive" type="TextureRect" parent="3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_68l88")
+
+[node name="Label" type="Label" parent="3"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 49.0
+offset_right = 96.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("2_inmar")
+theme_override_font_sizes/font_size = 20
+text = "E"
