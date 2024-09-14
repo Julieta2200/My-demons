@@ -37,6 +37,7 @@ var wave_3_dialog: Array[Dictionary] = [
 
 func _ready():
 	super._ready()
+	$CanvasLayer/support.skill(0)
 	wave_timer = Timer.new()
 	wave_timer.wait_time = 1
 	add_child(wave_timer)
@@ -46,7 +47,12 @@ func _ready():
 	dialog_timer.wait_time = 3
 	add_child(dialog_timer)
 	next_dialog = initial_dialog
+
+func _on_second_skill_cooldown_timer_done():
+	super._on_second_skill_cooldown_timer_done()
+	$CanvasLayer/support.skill(1)
 	
+
 func _on_dialog_start_timeout():
 	dialog_timer.connect("timeout", show_initial_dialog)
 	start_dialog()
@@ -175,3 +181,9 @@ func start_wave(wave: Callable):
 func start_next_leve():
 	VillageManager.set_state(VillageManager.STATES.INA)
 	get_tree().change_scene_to_file("res://project/Level/village.tscn")
+
+
+func enemy_slowdown():
+	pass
+
+

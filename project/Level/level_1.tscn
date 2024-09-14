@@ -441,6 +441,10 @@ layer = 3
 [node name="hearts" parent="CanvasLayer" instance=ExtResource("8_iol3b")]
 
 [node name="support" parent="CanvasLayer" instance=ExtResource("9_e3ok8")]
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Start"
@@ -453,7 +457,7 @@ position = Vector2(-4, -9)
 curve = SubResource("Curve2D_c6fsr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="light_path"]
-position = Vector2(517.099, 454.985)
+position = Vector2(517.101, 454.985)
 rotation = 2.99178
 progress = 3468.0
 

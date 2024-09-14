@@ -41,6 +41,7 @@ var wave_3_dialog: Array[Dictionary] = [
 func _ready():
 	super._ready()
 	wave_timer = Timer.new()
+	$CanvasLayer/support.skill(0)
 	wave_timer.wait_time = 1
 	add_child(wave_timer)
 	clock_left = $clock/c_left
@@ -179,4 +180,9 @@ func start_next_leve():
 	VillageManager.set_state(VillageManager.STATES.GARY)
 	get_tree().change_scene_to_file("res://project/Level/village.tscn")
 
+func heal():
+	pass
+
+func enemy_slowdown():
+	pass
 

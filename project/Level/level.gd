@@ -13,7 +13,6 @@ var ina_sprite_scene = preload("res://project/SpriteFrames/ina_sprite.tscn")
 var shiny_sprite_scene = preload("res://project/SpriteFrames/shiny_sprite.tscn")
 var ori_sprite_scene = preload("res://project/SpriteFrames/ori_sprite.tscn")
 var damage_light_scene = preload("res://project/Luos/damage_light.tscn")
-
 var clock_scene = preload("res://project/Enemy/clock.tscn")
 
 var spawn_points: Array
@@ -38,6 +37,7 @@ var wave_finished: bool
 
 @onready var soul: StaticBody2D = $soul
 @onready var hearts = $CanvasLayer/hearts
+@onready var skills = $CanvasLayer/support
 
 func _ready():
 	spawn_points = $points.get_children()
@@ -165,6 +165,8 @@ func delete_enemies():
 	enemies = {}
 	first_skill_cooldown = true
 	first_skill_cooldown_timer.start()
+	skills.deactive_skill(0)
+	
 	if enemies.size() == 0 and wave_finished:
 		start_dialog()
 	
@@ -183,6 +185,7 @@ func _on_second_skill_cooldown_timer_done():
 func heal():
 	second_skill_cooldown = false
 	hearts.add_heart()
+	skills.deactive_skill(1)
 
 func _on_third_skill_cooldown_timer_done():
 	third_skill_cooldown = false
@@ -195,7 +198,9 @@ func enemy_slowdown():
 	third_skill_cooldown_timer.start()
 	for enemy in enemies:
 		enemy.slowdown()
+	skills.deactive_skill(2)
 		
-			
+
+
 
 
