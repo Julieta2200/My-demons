@@ -51,6 +51,7 @@ func _ready():
 	dialog_timer.wait_time = 3
 	add_child(dialog_timer)
 	next_dialog = initial_dialog
+	
 
 func _on_dialog_start_timeout():
 	if !BgMusic.playing:
@@ -175,3 +176,12 @@ func start_next_leve():
 	VillageManager.set_state(VillageManager.STATES.LILITH)
 	get_tree().change_scene_to_file("res://project/Level/village.tscn")
 
+
+func heal():
+	pass
+
+func enemy_slowdown():
+	pass
+
+func delete_enemies():
+	pass
