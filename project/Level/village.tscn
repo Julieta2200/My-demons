@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://g0v1n5jkif13"]
+[gd_scene load_steps=7 format=3 uid="uid://g0v1n5jkif13"]
 
 [ext_resource type="PackedScene" uid="uid://c1yq0s6dv87p" path="res://project/Luos/luos.tscn" id="1_553pf"]
 [ext_resource type="Script" path="res://project/Level/village.gd" id="1_mic0k"]
-[ext_resource type="Texture2D" uid="uid://c845jyv6hye01" path="res://assets/backgrounds/village.png" id="2_yvjo3"]
+[ext_resource type="Texture2D" uid="uid://cii478m4l3hps" path="res://assets/backgrounds/Sprite-00001.png" id="2_70q07"]
 [ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="3_ddpta"]
+[ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="4_7e4vl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir2ib"]
 
@@ -11,15 +12,22 @@
 script = ExtResource("1_mic0k")
 
 [node name="village" type="Sprite2D" parent="."]
-position = Vector2(2000, 448)
+position = Vector2(4000, 448)
 scale = Vector2(4, 4)
-texture = ExtResource("2_yvjo3")
+texture = ExtResource("2_70q07")
 
 [node name="luos" parent="." instance=ExtResource("1_553pf")]
-position = Vector2(512, 448)
+position = Vector2(327, 435)
 
 [node name="Camera2D" type="Camera2D" parent="luos"]
+position = Vector2(0, 3)
 limit_left = 0
+
+[node name="PointLight2D" type="PointLight2D" parent="luos"]
+color = Color(0, 0, 1, 1)
+energy = 2.22
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.5
 
 [node name="lilith_area" type="Area2D" parent="."]
 position = Vector2(1241, 455)
