@@ -49,9 +49,6 @@ var wave_finished: bool
 @onready var hearts = $CanvasLayer/hearts
 
 func _ready():
-	if !BgMusic.playing:
-		BgMusic.play()
-	
 	spawn_points = $points.get_children()
 	randomize()
 	#first_skill

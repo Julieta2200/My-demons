@@ -13,6 +13,7 @@ func move(delta: float):
 	
 
 func damage():
+	$laser2.stop()
 	$laser.visible = false
 	$enemy.visible = false
 	$laser_area.get_node("CollisionShape2D").disabled = true
@@ -20,6 +21,7 @@ func damage():
 	$laser_visible_timer.start()
 
 func _on_timer_timeout():
+	$laser2.play()
 	$laser.visible = true
 	$enemy.visible = true
 	$laser_area.get_node("CollisionShape2D").disabled = false
