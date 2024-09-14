@@ -70,6 +70,8 @@ func start_monolog():
 	show_dialog("Thank you for facing the storm with me...")
 	await get_tree().create_timer(5).timeout
 	$CanvasLayer/Dialog.finish()
+	await get_tree().create_timer(3).timeout
+	$AnimationPlayer.play("theend")
 	
 	
 	

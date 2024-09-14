@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cxa6gb4ka30kf"]
+[gd_scene load_steps=59 format=3 uid="uid://cxa6gb4ka30kf"]
 
 [ext_resource type="Script" path="res://project/Level/final.gd" id="1_g67o2"]
 [ext_resource type="Texture2D" uid="uid://bgmkioinxsn1l" path="res://assets/level1/Background/Background1.png" id="2_icqwq"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="7_uyxjt"]
 [ext_resource type="AudioStream" uid="uid://dkyvfdrxmhhcu" path="res://assets/SFX/Level Start Spirit Spiral.mp3" id="8_6c0rx"]
 [ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="8_11t3u"]
+[ext_resource type="Texture2D" uid="uid://cmfdta833fi3j" path="res://assets/ui/The_End.png" id="8_20tg6"]
 [ext_resource type="Texture2D" uid="uid://cthq2ayxddap3" path="res://assets/Enemy/Bumerang/Bumerang1.png" id="8_hqtvm"]
 [ext_resource type="PackedScene" uid="uid://c6j5qs2pkvj6i" path="res://project/Soul/luos_soul.tscn" id="9_22dal"]
+[ext_resource type="FontFile" uid="uid://6mwrr7s82x4f" path="res://assets/fonts/SF Pixelate.ttf" id="9_cperi"]
 [ext_resource type="Texture2D" uid="uid://doesjssh52set" path="res://assets/Enemy/Bumerang/Bumerang2.png" id="9_q8ti7"]
 [ext_resource type="Texture2D" uid="uid://2ej8phto5hkl" path="res://assets/Enemy/Bumerang/Bumerang3.png" id="10_n162g"]
 [ext_resource type="PackedScene" uid="uid://bskbw7olq0032" path="res://project/Soul/ori.tscn" id="11_pi0kk"]
@@ -201,6 +203,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_dugvw"]
@@ -550,6 +564,21 @@ tracks/11/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_nitmd"]
+resource_name = "theend"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4g37i"]
 _data = {
 "Finish": SubResource("Animation_el77p"),
@@ -557,7 +586,8 @@ _data = {
 "Start": SubResource("Animation_dugvw"),
 "dimming": SubResource("Animation_4ktol"),
 "lost": SubResource("Animation_tfajr"),
-"shining": SubResource("Animation_j11ot")
+"shining": SubResource("Animation_j11ot"),
+"theend": SubResource("Animation_nitmd")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_c6fsr"]
@@ -956,6 +986,42 @@ position = Vector2(1472, 60)
 layer = 3
 
 [node name="Dialog" parent="CanvasLayer" instance=ExtResource("8_11t3u")]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1024.0
+offset_bottom = 896.0
+texture = ExtResource("8_20tg6")
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 655.0
+offset_right = 356.0
+offset_bottom = 678.0
+theme_override_fonts/font = ExtResource("9_cperi")
+theme_override_font_sizes/font_size = 20
+text = "Art: Argine Melkumyan"
+
+[node name="Label2" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 693.0
+offset_right = 356.0
+offset_bottom = 716.0
+theme_override_fonts/font = ExtResource("9_cperi")
+theme_override_font_sizes/font_size = 20
+text = "Programming: Grisha Kirakosyan, Julieta Sargsyan, Hovhannes Gharibjanyan"
+
+[node name="Label3" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 733.0
+offset_right = 1004.0
+offset_bottom = 756.0
+theme_override_fonts/font = ExtResource("9_cperi")
+theme_override_font_sizes/font_size = 20
+text = "Music and SFX: Aaron Spacefood"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Start"
