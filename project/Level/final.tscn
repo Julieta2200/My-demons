@@ -968,7 +968,7 @@ position = Vector2(-4, -9)
 curve = SubResource("Curve2D_c6fsr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="light_path"]
-position = Vector2(517.101, 454.985)
+position = Vector2(517.099, 454.985)
 rotation = 2.99178
 progress = 3468.0
 
@@ -1076,7 +1076,7 @@ libraries = {
 }
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="circle"]
-position = Vector2(493.618, 639.647)
+position = Vector2(493.619, 639.647)
 rotation = -1.56267
 progress = 948.147
 rotates = false

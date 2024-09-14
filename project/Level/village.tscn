@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c1yq0s6dv87p" path="res://project/Luos/luos.tscn" id="1_553pf"]
 [ext_resource type="Script" path="res://project/Level/village.gd" id="1_mic0k"]
-[ext_resource type="Texture2D" uid="uid://cii478m4l3hps" path="res://assets/backgrounds/Sprite-00001.png" id="2_70q07"]
+[ext_resource type="Texture2D" uid="uid://c845jyv6hye01" path="res://assets/backgrounds/village.png" id="2_6kglg"]
 [ext_resource type="PackedScene" uid="uid://cr6aql8rvho0w" path="res://project/Dialog/dialog.tscn" id="3_ddpta"]
 [ext_resource type="Texture2D" uid="uid://babhrqjwfxcdy" path="res://assets/backgrounds/light.png" id="4_7e4vl"]
 [ext_resource type="AudioStream" uid="uid://c3uualbuts6k3" path="res://assets/music/village.wav" id="6_1aecc"]
@@ -15,7 +15,35 @@ script = ExtResource("1_mic0k")
 [node name="village" type="Sprite2D" parent="."]
 position = Vector2(4000, 448)
 scale = Vector2(4, 4)
-texture = ExtResource("2_70q07")
+texture = ExtResource("2_6kglg")
+
+[node name="light1" type="PointLight2D" parent="village"]
+position = Vector2(-415, -57.5)
+color = Color(1, 1, 0, 1)
+energy = 3.09
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.3
+
+[node name="light2" type="PointLight2D" parent="village"]
+position = Vector2(-276.75, -57.5)
+color = Color(1, 1, 0, 1)
+energy = 3.09
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.3
+
+[node name="light3" type="PointLight2D" parent="village"]
+position = Vector2(-126.75, -57.5)
+color = Color(1, 1, 0, 1)
+energy = 3.09
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.3
+
+[node name="light4" type="PointLight2D" parent="village"]
+position = Vector2(26.25, -57.5)
+color = Color(1, 1, 0, 1)
+energy = 3.09
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.3
 
 [node name="luos" parent="." instance=ExtResource("1_553pf")]
 position = Vector2(327, 435)
@@ -37,34 +65,69 @@ stream = ExtResource("6_1aecc")
 autoplay = true
 
 [node name="lilith_area" type="Area2D" parent="."]
-position = Vector2(1241, 455)
+position = Vector2(1027, 455)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lilith_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
+[node name="PointLight2D" type="PointLight2D" parent="lilith_area"]
+position = Vector2(-16, 0)
+color = Color(0, 1, 1, 1)
+energy = 3.93
+blend_mode = 2
+texture = ExtResource("4_7e4vl")
+
 [node name="gary_area" type="Area2D" parent="."]
-position = Vector2(1622, 455)
+position = Vector2(1637, 455)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gary_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
+[node name="PointLight2D" type="PointLight2D" parent="gary_area"]
+position = Vector2(-18, 0)
+color = Color(0, 1, 0, 1)
+energy = 2.22
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.5
+
 [node name="ina_area" type="Area2D" parent="."]
-position = Vector2(1961, 455)
+position = Vector2(2108, 455)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ina_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
+[node name="PointLight2D" type="PointLight2D" parent="ina_area"]
+position = Vector2(-18, 0)
+color = Color(0.917647, 0.27451, 0, 1)
+energy = 2.22
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.5
+
 [node name="shiny_area" type="Area2D" parent="."]
-position = Vector2(2243, 457)
+position = Vector2(3020, 457)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shiny_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
 
+[node name="PointLight2D" type="PointLight2D" parent="shiny_area"]
+position = Vector2(-18, 0)
+color = Color(1, 1, 0.152941, 1)
+energy = 1.64
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.5
+
 [node name="ori_area" type="Area2D" parent="."]
-position = Vector2(2480, 457)
+position = Vector2(3612, 457)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ori_area"]
 shape = SubResource("RectangleShape2D_ir2ib")
+
+[node name="PointLight2D" type="PointLight2D" parent="ori_area"]
+position = Vector2(-18, 0)
+color = Color(1, 0, 0, 1)
+energy = 5.53
+texture = ExtResource("4_7e4vl")
+texture_scale = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -76,19 +139,19 @@ wait_time = 3.0
 [node name="positions" type="Node2D" parent="."]
 
 [node name="lilith" type="Marker2D" parent="positions"]
-position = Vector2(1195, 448)
+position = Vector2(1003, 435)
 
 [node name="gary" type="Marker2D" parent="positions"]
-position = Vector2(1570, 448)
+position = Vector2(1600, 435)
 
 [node name="ina" type="Marker2D" parent="positions"]
-position = Vector2(1905, 451)
+position = Vector2(2088, 435)
 
 [node name="shiny" type="Marker2D" parent="positions"]
-position = Vector2(2195, 451)
+position = Vector2(2982, 435)
 
 [node name="ori" type="Marker2D" parent="positions"]
-position = Vector2(2438, 451)
+position = Vector2(3583, 435)
 
 [connection signal="body_entered" from="lilith_area" to="." method="_on_lilith_area_body_entered"]
 [connection signal="body_entered" from="gary_area" to="." method="_on_gary_area_body_entered"]
