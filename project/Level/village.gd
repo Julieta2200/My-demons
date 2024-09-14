@@ -169,6 +169,7 @@ func prepare_ori_state():
 	ori_area.queue_free()
 	luos.global_position = ori_positon.global_position
 	luos.freeze()
+	$light.play("lightup")
 	start_dialog(ori_end_dialog)
 
 func start_dialog(d):
@@ -195,8 +196,13 @@ func dialog_finished():
 	match dialog:
 		lilith_start_dialog, gary_start_dialog, ina_start_dialog, shiny_start_dialog, ori_start_dialog:
 			get_tree().change_scene_to_file(level)
-		lilith_end_dialog, gary_end_dialog, ina_end_dialog, shiny_end_dialog, ori_end_dialog:
+		lilith_end_dialog, gary_end_dialog, ina_end_dialog, shiny_end_dialog:
 			luos.unfreeze()
+		ori_end_dialog:
+			final_level()
+
+func final_level():
+	get_tree().change_scene_to_file("res://project/Level/final.tscn")
 
 func _on_lilith_area_body_entered(body):
 	luos.freeze()
