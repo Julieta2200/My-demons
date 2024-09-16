@@ -24,6 +24,7 @@ VillageManager="*res://project/Level/village_manager.gd"
 
 window/size/viewport_width=1024
 window/size/viewport_height=896
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor]
